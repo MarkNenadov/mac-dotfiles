@@ -1,0 +1,13 @@
+[user]
+	name = Mark Nenadov
+	email = marknenadov@gmail.com
+[core]
+	autocrlf = input
+	editor = vim
+[alias]
+	u = merge
+	m = merge
+	c = commit
+	f = fetch
+	p = push
+	a = add

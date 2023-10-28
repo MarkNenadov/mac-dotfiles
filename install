@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+set -e
+
+if [ ! $(which brew) ]; then
+  echo "[dotfiles] Installing homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+echo "[mac-dotfiles] Installing dependencies via Homebrew..."
+if brew bundle; then
+  echo "[mac-dotfiles] All dependencies installed"
+fi
