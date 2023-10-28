@@ -13,3 +13,7 @@ echo "[mac-dotfiles] Installing dependencies via Homebrew..."
 if brew bundle; then
   echo "[mac-dotfiles] All dependencies installed"
 fi
+
+echo "[mac-dotfiles] Linking dotfiles..."
+mv $HOME/.gitconfig $HOME/.gitconfigOLD
+ln -s $(pwd)/gitconfig $HOME/.gitconfig
