@@ -33,6 +33,7 @@ alias mvn-outdated="mvn versions:display-dependency-updates"
 # version control
 
 alias g="git"
+alias gfm="git fetch; git merge;"
 alias git-ls="git ls-tree -r master --name-only"
 
 # compression
