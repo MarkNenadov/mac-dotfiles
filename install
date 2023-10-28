@@ -20,3 +20,6 @@ ln -s $(pwd)/gitconfig $HOME/.gitconfig
 
 mv $HOME/.zshrc $HOME/.zshrcOLD
 ln -s $(pwd)/zshrc $HOME/.zshrc
+
+mv $HOME/.vimrc $HOME/.vimrcOLD
+ln -s $(pwd)/vimrc $HOME/.vimhrc

@@ -11,3 +11,5 @@
 	f = fetch
 	p = push
 	a = add
+[credential]
+	helper = osxkeychain

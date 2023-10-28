@@ -28,6 +28,7 @@ alias a-w="chmod a-w"
 
 alias py="python3"
 alias rb="ruby"
+alias mvn-outdated="mvn versions:display-dependency-updates"
 
 # version control
 
