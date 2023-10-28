@@ -11,6 +11,7 @@ alias ..="cd .."
 alias h="history"
 alias sus="su -s"
 alias follow="tail -f"
+alias ls="ls --color=auto"
 
 # ownership 
 
@@ -48,6 +49,13 @@ alias upgrade="brew upgrade"
 alias ccd="cd"
 alias lls="ls"
 alias cim="vim"
+ 
+# helper functions
+
+mkcd() {
+  mkdir "$1"
+  cd "$1" || return 1
+}
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
