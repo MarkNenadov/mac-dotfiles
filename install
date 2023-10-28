@@ -18,5 +18,5 @@ echo "[mac-dotfiles] Linking dotfiles..."
 mv $HOME/.gitconfig $HOME/.gitconfigOLD
 ln -s $(pwd)/gitconfig $HOME/.gitconfig
 
-mv $HOME/.gitconfig $HOME/.zshrcOLD
+mv $HOME/.zshrc $HOME/.zshrcOLD
 ln -s $(pwd)/zshrc $HOME/.zshrc
