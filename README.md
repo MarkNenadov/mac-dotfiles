@@ -2,6 +2,7 @@
 
 My mac dotfiles. Install via ./install
 
-## Thanks
+## Thanks (for inspiration and, at times, being on the receiving end of dotfile "theft")
 
-Thanks to Eric Farkas (https://github.com/speric) for inspiration and being on the receiving end of dotfile theft :-)
+* Eric Farkas (https://github.com/speric)
+* Wade Simmons (https://github.com/wadey)
