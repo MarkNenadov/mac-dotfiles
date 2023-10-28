@@ -2,24 +2,44 @@
 
 set -e
 
-if [ ! $(which brew) ]; then
-  echo "[dotfiles] Installing homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+do_brew() {
+	if [ ! $(which brew) ]; then
+  		echo "[dotfiles] Installing homebrew..."
+  		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+  		eval "$(/opt/homebrew/bin/brew shellenv)"
+	fi
 
-echo "[mac-dotfiles] Installing dependencies via Homebrew..."
-if brew bundle; then
-  echo "[mac-dotfiles] All dependencies installed"
-fi
+	echo "[mac-dotfiles] Installing dependencies via Homebrew..."
+	if brew bundle; then
+  		echo "[mac-dotfiles] All dependencies installed"
+	fi
+}
+do_brew
 
 echo "[mac-dotfiles] Linking dotfiles..."
-mv $HOME/.gitconfig $HOME/.gitconfigOLD
-ln -s $(pwd)/gitconfig $HOME/.gitconfig
 
-mv $HOME/.zshrc $HOME/.zshrcOLD
-ln -s $(pwd)/zshrc $HOME/.zshrc
+link_dotfiles() {
+	mv $HOME/.gitconfig $HOME/.gitconfigOLD
+	ln -s $(pwd)/gitconfig $HOME/.gitconfig
 
-mv $HOME/.vimrc $HOME/.vimrcOLD
-ln -s $(pwd)/vimrc $HOME/.vimhrc
+	mv $HOME/.zshrc $HOME/.zshrcOLD
+	ln -s $(pwd)/zshrc $HOME/.zshrc
+
+	if [[ -e $HOME/.vimrc ]]; then
+		mv $HOME/.vimrc $HOME/.vimrcOLD
+	fi
+	ln -s $(pwd)/vimrc $HOME/.vimrc
+}
+link_dotfiles
+
+echo "[mac-dotfiles] Installing zshlilly in $HOME"
+
+install_zshlilly() {
+	git clone https://github.com/MarkNenadov/zshlilly.git
+	cd zshlilly
+	./install.zsh $HOME
+	cd ..
+	rm -rf zshlilly
+}
+install_zshlilly
