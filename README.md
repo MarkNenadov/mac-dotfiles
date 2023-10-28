@@ -1,6 +1,6 @@
 # mac-dotfiles
 
-My mac dotfiles
+My mac dotfiles. Install via ./install
 
 ## Thanks
 
