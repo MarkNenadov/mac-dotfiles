@@ -1,6 +1,10 @@
 # mac-dotfiles
 
-My mac dotfiles. Install via ./install
+My mac dotfiles. 
+
+Install via ./install
+
+Update via ./update
 
 ## Thanks (for inspiration and, at times, being on the receiving end of dotfile "theft")
 
