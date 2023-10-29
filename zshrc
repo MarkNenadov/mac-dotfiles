@@ -79,5 +79,10 @@ docker_prune() {
 	docker system prune --volumes -fa
 }
 
+randpass() {
+  local len=${1:-32}
+  openssl rand -base64 256 | tr -d '\n/+='| cut -c -$len
+}
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
