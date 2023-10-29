@@ -11,4 +11,5 @@ Update via ./update
 ...for inspiration and, at times, being on the receiving end of dotfile "theft"...
 
 * Eric Farkas (https://github.com/speric)
+* Carlos Alexandro Becker (https://github.com/caarlos0)
 * Wade Simmons (https://github.com/wadey)
