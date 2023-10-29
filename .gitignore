@@ -1,4 +1,5 @@
 *.swp
 *.swo
+*.lock
 zshlilly
 Brewfile.lock.json

@@ -1,6 +1,9 @@
 # basic shell
 
-alias rm="rm -v"
+alias mv='mv -i'
+for c in cp rm chmod chown rename; do
+  alias $c="$c -v"
+done
 alias p="ps -ef|grep "
 alias f="find .|grep "
 alias v="vim"
@@ -13,6 +16,9 @@ alias sus="su -s"
 alias follow="tail -f"
 alias ls="ls --color=auto"
 alias duf="du -sh * | sort -hr"
+alias f1="awk '{print \$1}'"
+alias f2="awk '{print \$2}'"
+alias f3="awk '{print \$3}'"
 
 # ownership 
 
@@ -34,10 +40,19 @@ alias mvnci='mvn clean install'
 # version control
 
 alias g="git"
+alias ga="git add"
+alias gf="git fetch"
+alias gp="git push"
+alias gm="git mergeh"
 alias gfm="git fetch; git merge;"
 alias git-ls="git ls-tree -r master --name-only"
 
+# javascript
+alias y="yarn"
+alias n="npm"
+
 # compression
+
 alias gz="gzip"
 alias gu="gunzip"
 alias z="zip"
