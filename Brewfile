@@ -9,3 +9,5 @@ cask "audacity"
 cask "gimp"
 cask "postman"
 cask 'spotify'
+cask 'zoom'
+cask 'visual-studio-code'

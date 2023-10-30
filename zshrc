@@ -19,6 +19,7 @@ alias duf="du -sh * | sort -hr"
 alias f1="awk '{print \$1}'"
 alias f2="awk '{print \$2}'"
 alias f3="awk '{print \$3}'"
+alias df="df -h"
 
 # ownership 
 
