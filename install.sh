@@ -4,7 +4,7 @@ set -e
 
 do_brew() {
 	if [ ! $(which brew) ]; then
-  		echo "[dotfiles] Installing homebrew..."
+  		echo "[mac-dotfiles] Installing homebrew..."
   		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   		eval "$(/opt/homebrew/bin/brew shellenv)"
