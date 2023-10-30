@@ -2,9 +2,9 @@
 
 My mac dotfiles. 
 
-Install via ./install
+Install via ./install.sh
 
-Update via ./update
+Update via ./update.sh
 
 ## Thanks
 
