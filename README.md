@@ -14,4 +14,5 @@ Update via ./update
 * Carlos Alexandro Becker (https://github.com/caarlos0)
 * Ian Langworth (https://github.com/statico)
 * Wynn Netherland (https://github.com/pengwynn)
+* Mathias Bynens (https://github.com/mathiasbynens)
 * Wade Simmons (https://github.com/wadey)

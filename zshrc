@@ -20,6 +20,11 @@ alias f1="awk '{print \$1}'"
 alias f2="awk '{print \$2}'"
 alias f3="awk '{print \$3}'"
 alias df="df -h"
+alias cls="clear"
+alias d="cd ~/Documents"
+alias dl="cd ~/Documents"
+alias p="cd ~/CodeProjects"
+alias path='echo -e ${PATH//:/\\n}'
 
 # ownership 
 
@@ -96,6 +101,12 @@ randpass() {
 last_commit() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
+}
+
+trash() { mv $1 ~/.Trash }
+
+f() {
+    find . -name "$1"
 }
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
