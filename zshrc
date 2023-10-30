@@ -5,7 +5,6 @@ for c in cp rm chmod chown rename; do
   alias $c="$c -v"
 done
 alias p="ps -ef|grep "
-alias f="find .|grep "
 alias v="vim"
 alias q="exit"
 alias :q="exit"
