@@ -13,4 +13,5 @@ Update via ./update
 * Eric Farkas (https://github.com/speric)
 * Carlos Alexandro Becker (https://github.com/caarlos0)
 * Ian Langworth (https://github.com/statico)
+* Wynn Netherland (https://github.com/pengwynn)
 * Wade Simmons (https://github.com/wadey)

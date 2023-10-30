@@ -48,7 +48,15 @@ alias gm="git mergeh"
 alias gfm="git fetch; git merge;"
 alias git-ls="git ls-tree -r master --name-only"
 
+# networking
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
+
+
 # javascript
+
 alias y="yarn"
 alias n="npm"
 
@@ -83,6 +91,11 @@ docker_prune() {
 randpass() {
   local len=${1:-32}
   openssl rand -base64 256 | tr -d '\n/+='| cut -c -$len
+}
+
+last_commit() {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
 }
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
