@@ -12,6 +12,7 @@
 	p = push
 	a = add
 	l = log
+	l1 = log --pretty-oneline
 	s = status
 	ss = status -s
 [credential]
