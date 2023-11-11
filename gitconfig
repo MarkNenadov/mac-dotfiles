@@ -11,5 +11,8 @@
 	f = fetch
 	p = push
 	a = add
+	l = log
+	s = status
+	ss = status -s
 [credential]
 	helper = osxkeychain
