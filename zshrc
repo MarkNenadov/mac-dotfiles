@@ -55,7 +55,7 @@ alias gl="git log"
 alias gl1="git log --pretty=oneline"
 alias gss="git status -s"
 alias clone="git clone"
-alias gm="git mergeh"
+alias gm="git merge"
 alias gfm="git fetch; git merge;"
 alias git-ls="git ls-tree -r master --name-only"
 
