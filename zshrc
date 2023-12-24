@@ -4,6 +4,7 @@ alias mv='mv -i'
 for c in cp rm chmod chown rename; do
   alias $c="$c -v"
 done
+alias ps="ps -ef"
 alias p="ps -ef|grep "
 alias v="vim"
 alias q="exit"
