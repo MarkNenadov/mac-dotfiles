@@ -2,6 +2,7 @@ brew 'git'
 brew 'youtube-dl'
 brew 'wget'
 brew 'nmap'
+brew 'telnet'
 brew 'postgresql@14'
 brew 'maven'
 
