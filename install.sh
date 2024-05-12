@@ -43,3 +43,11 @@ install_zshlilly() {
 	rm -rf zshlilly
 }
 install_zshlilly
+
+echo "[mac-dotfiles] Installing latest python"
+
+install_latest_python() {
+	pyenv install $(pyenv install --list | grep -v - | grep -v b | tail -1)
+        pyenv global $(pyenv install --list | grep -v - | grep -v b | tail -1)
+}
+install_latest_python
