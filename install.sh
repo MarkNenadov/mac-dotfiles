@@ -22,16 +22,16 @@ do_brew
 echo "[mac-dotfiles] Linking dotfiles..."
 
 link_dotfiles() {
-	mv $HOME/.gitconfig $HOME/.gitconfigOLD
-	ln -s $(pwd)/gitconfig $HOME/.gitconfig
+	mv "$HOME/.gitconfig" "$HOME/.gitconfigOLD"
+	ln -s "$(pwd)/gitconfig" "$HOME/.gitconfig"
 
-	mv $HOME/.zshrc $HOME/.zshrcOLD
+	mv "$HOME/.zshrc" "$HOME/.zshrcOLD"
 	ln -s $(pwd)/zshrc $HOME/.zshrc
 
-	if [[ -e $HOME/.vimrc ]]; then
-		mv $HOME/.vimrc $HOME/.vimrcOLD
+	if [[ -e "$HOME/.vimrc" ]]; then
+		mv "$HOME/.vimrc" "$HOME/.vimrcOLD"
 	fi
-	ln -s $(pwd)/vimrc $HOME/.vimrc
+	ln -s "$(pwd)/vimrc" "$HOME/.vimrc"
 }
 link_dotfiles
 
