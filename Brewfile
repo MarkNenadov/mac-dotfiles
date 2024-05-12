@@ -7,6 +7,7 @@ brew 'postgresql@14'
 brew 'maven'
 brew 'jenv'
 brew 'pyenv'
+brew 'poetry'
 
 cask 'audacity'
 cask 'gimp'
