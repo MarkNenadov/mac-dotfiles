@@ -5,6 +5,7 @@ brew 'nmap'
 brew 'telnet'
 brew 'postgresql@14'
 brew 'maven'
+brew 'pyenv'
 
 cask 'audacity'
 cask 'gimp'
