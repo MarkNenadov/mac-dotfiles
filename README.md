@@ -1,6 +1,6 @@
 # mac-dotfiles
 
-My mac dotfiles. 
+My mac dotfiles, with an environment bootstrap. 
 
 Install via ./install.sh
 
