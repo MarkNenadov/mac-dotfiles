@@ -13,6 +13,8 @@ do_brew() {
 	echo "[mac-dotfiles] Installing dependencies via Homebrew..."
 	if brew bundle; then
   		echo "[mac-dotfiles] All dependencies installed"
+        else
+		echo "[mac-dotfiles] Error: Failed to install Homebrew dependencies"
 	fi
 }
 do_brew
