@@ -8,6 +8,7 @@ brew 'postgresql@14'
 brew 'maven'
 brew 'rbenv'
 brew 'jenv'
+brew 'ant'
 brew 'pyenv'
 brew 'poetry'
 
