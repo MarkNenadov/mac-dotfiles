@@ -53,4 +53,10 @@ install_latest_python() {
 	pyenv install $latest_version
 	pyenv global $latest_version
 }
-install_latest_python
+install_latest_python || echo "[mac-dotfiles] failed installing python"
+
+echo "[mac-dotfiles] Installing python dependencies"
+
+python3 -m pip install -r python-requirements.txt
+
+echo "[mac-dotfiles] Finished."
