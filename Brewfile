@@ -11,6 +11,7 @@ brew 'jenv'
 brew 'ant'
 brew 'pyenv'
 brew 'poetry'
+brew 'rust'
 
 cask 'audacity'
 cask 'gimp'
