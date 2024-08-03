@@ -26,3 +26,4 @@ Update via ./update.sh
 * Wynn Netherland (https://github.com/pengwynn)
 * Mathias Bynens (https://github.com/mathiasbynens)
 * Wade Simmons (https://github.com/wadey)
+* Roman Ožana (https://github.com/OzzyCzech)
