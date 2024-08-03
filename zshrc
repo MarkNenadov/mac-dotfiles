@@ -7,34 +7,6 @@ done
 
 # helper functions
 
-mkcd() {
-  mkdir "$1"
-  cd "$1" || return 1
-}
-
-last_commit() {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    git log -1 --pretty=format:"%ar" | sed 's/\([0-9]*\) \(.\).*/\1\2/'
-}
-
-function 2heic() {
-  for i in "$@"; do sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic"; done
-}
-
-function 2png() {
-  for i in "$@"; do sips -s format png -s formatOptions 80 "$i" --out "${i%.*}.png"; done
-}
-
-function 2jpg() {
-  for i in "$@"; do sips -s format jpg -s formatOptions 80 "$i" --out "${i%.*}.jpg"; done
-}
-
-trash() { mv $1 ~/.Trash }
-
-f() {
-    find . -name "$1"
-}
-
 whatison() {
     lsof -i :$1
 }
