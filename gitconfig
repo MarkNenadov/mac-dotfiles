@@ -17,3 +17,7 @@
 	ss = status -s
 [credential]
 	helper = osxkeychain
+[status]
+	showStash = true
+[init]
+	defaultBranch = main
