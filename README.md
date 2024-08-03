@@ -15,7 +15,7 @@ Update via ./update.sh
 * python-requirements.txt (python packages I want to have installed everywhere)
 * vimrc (a few vim settings)
 * zshrc (some exports and functions)
-* * .zsh/aliases (lots of aliases included into zshrc)
+** .zsh/aliases (lots of aliases included into zshrc)
 
 ## Thanks
 
