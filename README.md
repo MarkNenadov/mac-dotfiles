@@ -14,7 +14,8 @@ Update via ./update.sh
 * Brewfile (some software I want to have installed everywhere)
 * python-requirements.txt (python packages I want to have installed everywhere)
 * vimrc (a few vim settings)
-* zshrc (lots of aliases, some exports and functions)
+* zshrc (some exports and functions)
+* * .zsh/aliases (lots of aliases included into zshrc)
 
 ## Thanks
 
