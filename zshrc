@@ -7,10 +7,6 @@ done
 
 # helper functions
 
-whatison() {
-    lsof -i :$1
-}
-
 function  encode64() {
   if [ -f "$1" ]; then
 
