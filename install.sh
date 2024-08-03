@@ -3,18 +3,20 @@
 set -e
 
 do_brew() {
-	if [ ! $(which brew) ]; then
-  		echo "[mac-dotfiles] Installing homebrew..."
-  		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-  		eval "$(/opt/homebrew/bin/brew shellenv)"
-	fi
+	if [[ "$1" != "--skip-brew" ]]; then
+		if [ ! $(which brew) ]; then
+  			echo "[mac-dotfiles] Installing homebrew..."
+  			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  			echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+  			eval "$(/opt/homebrew/bin/brew shellenv)"
+		fi
 
-	echo "[mac-dotfiles] Installing dependencies via Homebrew..."
-	if brew bundle; then
-  		echo "[mac-dotfiles] All dependencies installed"
-        else
-		echo "[mac-dotfiles] Error: Failed to install Homebrew dependencies"
+		echo "[mac-dotfiles] Installing dependencies via Homebrew..."
+		if brew bundle; then
+  			echo "[mac-dotfiles] All dependencies installed"
+        	else
+			echo "[mac-dotfiles] Error: Failed to install Homebrew dependencies"
+		fi
 	fi
 }
 do_brew
@@ -27,6 +29,9 @@ link_dotfiles() {
 
 	mv "$HOME/.zshrc" "$HOME/.zshrcOLD"
 	ln -s $(pwd)/zshrc $HOME/.zshrc
+
+	mv "$HOME/.zsh" "$HOME/.zshOLD"
+	ln -s $(pwd)/zsh $HOME/.zsh	
 
 	if [[ -e "$HOME/.vimrc" ]]; then
 		mv "$HOME/.vimrc" "$HOME/.vimrcOLD"
