@@ -10,6 +10,12 @@ Install via
 ./install.sh
 ```
 
+To skip homebrew bootstrap for isntall:
+
+```
+./install.sh --skip-brew
+```
+
 Update via 
 
 ```

@@ -19,7 +19,7 @@ do_brew() {
 		fi
 	fi
 }
-do_brew
+do_brew $1
 
 echo "[mac-dotfiles] Linking dotfiles..."
 
