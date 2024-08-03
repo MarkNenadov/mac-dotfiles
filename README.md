@@ -1,10 +1,20 @@
 # mac-dotfiles
 
+## Introduction
+
 My mac dotfiles, with an environment bootstrap. 
 
 Install via ./install.sh
 
 Update via ./update.sh
+
+## Things of Note
+
+* gitconfig (mostly aliases, some other settings)
+* Brewfile (some software I want to have installed everywhere)
+* python-requirements.txt (python packages I want to have installed everywhere)
+* vimrc (a few vim settings)
+* zshrc (lots of aliases, some exports and functions)
 
 ## Thanks
 
