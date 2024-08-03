@@ -22,14 +22,39 @@ Update via
 * Homebrew
 
 
-## Things of Note
+## Files of Note
 
 * gitconfig (mostly aliases, some other settings)
 * Brewfile (some software I want to have installed everywhere)
 * python-requirements.txt (python packages I want to have installed everywhere)
 * vimrc (a few vim settings)
 * zshrc (some exports and functions)
-  * .zsh/aliases (lots of aliases included into zshrc)
+  * .zsh/aliases.zsh (lots of aliases included into zshrc)
+  * .zsh/*.zsh (utility functions separated by category)
+
+## Sample Aliases
+
+```
+guessos 127.0.0.1    # use nmap to guess host os
+ports                # show open ports on 127.0.0.1
+ips                  # list bound ips
+p xyz                # ps -ef|grep xyz
+mvn-outdated         # list maven dependency updates
+gz                   # gzip
+gu                   # gunzip
+gfm                  # git fetch; git merge
+a+w                  # chmod a+w
+f1                   # awk '{print \$1}'
+```
+
+## Sample Utility Functions
+
+```
+2png test.jpg   # convert test.jpg to test.png
+last_commit     # how long ago was last commit on git repo
+docker_prune    # prune docker volumnes
+randpass        # generate a random password
+```
 
 ## Thanks
 
