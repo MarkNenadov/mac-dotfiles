@@ -11,3 +11,4 @@ set ttyfast                     "tf:    improves redrawing for newer computers
 set cryptmethod=blowfish2       " Use (much) stronger blowfish encryption
 set dictionary=spell        	" Complete words from the spelling dict.
 abbreviate teh the
+abbreviate priviledge privilege
