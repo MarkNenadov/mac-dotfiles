@@ -1,6 +1,9 @@
 # basic shell
 
-source ~/.zsh/aliases.zsh
+for module in ~/.zsh/*.zsh; do
+	source "$module"
+done
+
 
 # helper functions
 
@@ -8,17 +11,6 @@ mkcd() {
   mkdir "$1"
   cd "$1" || return 1
 }
-
-docker_prune() {
-	docker system prune --volumes -fa
-}
-
-randpass() {
-  local len=${1:-32}
-  openssl rand -base64 256 | tr -d '\n/+='| cut -c -$len
-}
-
-alias mkpasswd=randpass
 
 last_commit() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
@@ -36,7 +28,6 @@ function 2png() {
 function 2jpg() {
   for i in "$@"; do sips -s format jpg -s formatOptions 80 "$i" --out "${i%.*}.jpg"; done
 }
-123
 
 trash() { mv $1 ~/.Trash }
 
