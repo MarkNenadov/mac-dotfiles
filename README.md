@@ -4,9 +4,23 @@
 
 My mac dotfiles, with an environment bootstrap. 
 
-Install via ./install.sh
+Install via 
 
-Update via ./update.sh
+```
+./install.sh
+```
+
+Update via 
+
+```
+./update.sh
+```
+
+## Requirements
+
+* MacOS / zsh
+* Homebrew
+
 
 ## Things of Note
 
