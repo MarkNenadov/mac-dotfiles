@@ -2,7 +2,7 @@
 
 ## Introduction
 
-My mac dotfiles, with an environment bootstrap. 
+My mac dotfiles for ZSH, with a Brew environment bootstrap. 
 
 Install via 
 
@@ -10,7 +10,7 @@ Install via
 ./install.sh
 ```
 
-To skip homebrew bootstrap for isntall:
+To skip homebrew bootstrap bootstrap:
 
 ```
 ./install.sh --skip-brew
