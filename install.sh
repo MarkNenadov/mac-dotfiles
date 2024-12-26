@@ -12,6 +12,7 @@ do_brew() {
 		fi
 
 		echo "[mac-dotfiles] Installing dependencies via Homebrew..."
+		brew tap anchore/grype
 		if brew bundle; then
   			echo "[mac-dotfiles] All dependencies installed"
         	else
