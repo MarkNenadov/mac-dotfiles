@@ -20,6 +20,12 @@ A collection of dotfiles and configuration scripts for macOS, optimized for ZSH 
 # Installation without Homebrew packages
 ./install.sh --skip-brew
 
+# Preview changes without making them (dry run)
+./install.sh --dry-run
+
+# Combine options (e.g., dry run without Homebrew)
+./install.sh --dry-run --skip-brew
+
 # Update your dotfiles
 ./update.sh
 ```
