@@ -1,70 +1,88 @@
 # mac-dotfiles
 
-## Introduction
+A collection of dotfiles and configuration scripts for macOS, optimized for ZSH and Homebrew environments.
 
-My mac dotfiles for ZSH, with a Brew environment bootstrap. 
+## Features
 
-Install via 
+- 🚀 Quick setup with a single command
+- 🛠️ Homebrew package management
+- 🐍 Python environment configuration
+- 🎨 Custom ZSH configuration with useful aliases and functions
+- 🔧 Git configuration with helpful aliases
+- 📝 Vim configuration
 
-```
+## Quick Start
+
+```bash
+# Full installation (including Homebrew packages)
 ./install.sh
-```
 
-To skip homebrew bootstrap bootstrap:
-
-```
+# Installation without Homebrew packages
 ./install.sh --skip-brew
-```
 
-Update via 
-
-```
+# Update your dotfiles
 ./update.sh
 ```
 
 ## Requirements
 
-* MacOS / zsh
-* Homebrew
+- macOS
+- ZSH shell
+- Homebrew (optional, can be installed during setup)
 
+## Configuration Files
 
-## Files of Note
+### Core Configuration
+- `gitconfig` - Git configuration with aliases and settings
+- `zshrc` - Main ZSH configuration file
+- `vimrc` - Vim editor configuration
 
-* gitconfig (mostly aliases, some other settings)
-* Brewfile (some software I want to have installed everywhere)
-* python-requirements.txt (python packages I want to have installed everywhere)
-* vimrc (a few vim settings)
-* zshrc (some exports and functions)
-  * .zsh/aliases.zsh (lots of aliases included into zshrc)
-  * .zsh/*.zsh (utility functions separated by category)
+### Package Management
+- `Brewfile` - Homebrew package definitions
+- `python-requirements.txt` - Python package dependencies
 
-## Sample Aliases
+### ZSH Extensions
+- `.zsh/aliases.zsh` - Shell aliases
+- `.zsh/*.zsh` - Utility functions organized by category
 
-```
-guessos 127.0.0.1    # use nmap to guess host os
-ports                # show open ports on 127.0.0.1
-ips                  # list bound ips
+## Useful Aliases
+
+```bash
+# Network
+guessos 127.0.0.1    # Use nmap to guess host OS
+ports                # Show open ports on 127.0.0.1
+ips                  # List bound IPs
+
+# Process Management
 p xyz                # ps -ef|grep xyz
-mvn-outdated         # list maven dependency updates
+
+# Development
+mvn-outdated         # List Maven dependency updates
+gfm                  # git fetch; git merge
+
+# File Operations
 gz                   # gzip
 gu                   # gunzip
-gfm                  # git fetch; git merge
 a+w                  # chmod a+w
-f1                   # awk '{print \$1}'
+f1                   # awk '{print $1}'
 ```
 
-## Sample Utility Functions
+## Utility Functions
 
+```bash
+2png test.jpg   # Convert test.jpg to test.png
+last_commit     # Show time since last commit in git repo
+docker_prune    # Clean up Docker volumes
+randpass        # Generate a random password
 ```
-2png test.jpg   # convert test.jpg to test.png
-last_commit     # how long ago was last commit on git repo
-docker_prune    # prune docker volumnes
-randpass        # generate a random password
-```
 
-## Thanks
+## Contributing
 
-...for inspiration and, at times, being on the receiving end of dotfile "theft"...
+Feel free to fork this repository and customize it for your needs. Pull requests are welcome!
+
+## Acknowledgments
+
+Thanks to the following developers for inspiration and ideas:
 
 * Eric Farkas (https://github.com/speric)
 * Carlos Alexandro Becker (https://github.com/caarlos0)
