@@ -13,7 +13,6 @@ brew 'ant'
 brew 'pyenv'
 brew 'poetry'
 brew 'rust'
-brew 'jscpd'
 brew 'grype'
 
 cask 'audacity'
