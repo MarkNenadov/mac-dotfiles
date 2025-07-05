@@ -12,8 +12,9 @@ This is a macOS dotfiles repository that provides configuration files and instal
 - `./install.sh` - Full installation including Homebrew packages
 - `./install.sh --skip-brew` - Install dotfiles without Homebrew packages
 - `./install.sh --dry-run` - Preview changes without making them
+- `./install.sh --quiet` - Quiet installation (reduces Homebrew noise)
 - `./install.sh --dry-run --skip-brew` - Dry run without Homebrew
-- `./update.sh` - Update dotfiles (pulls from git and reinstalls)
+- `./update.sh` - Update dotfiles (pulls from git and reinstalls with quiet mode)
 
 ### No Build/Test Commands
 This repository contains configuration files and shell scripts - there are no build, test, or lint commands to run.

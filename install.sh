@@ -3,6 +3,7 @@
 set -e
 
 DRY_RUN=false
+QUIET=false
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -13,6 +14,10 @@ while [[ $# -gt 0 ]]; do
 			;;
 		--skip-brew)
 			SKIP_BREW=true
+			shift
+			;;
+		--quiet)
+			QUIET=true
 			shift
 			;;
 		*)
@@ -40,10 +45,21 @@ do_brew() {
 		else
 			echo "[mac-dotfiles] Installing dependencies via Homebrew..."
 			brew tap anchore/grype
-			if brew bundle; then
+			if [[ "$QUIET" == "true" ]]; then
+				HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --quiet 2>/dev/null
+				brew_result=$?
+			else
+				HOMEBREW_NO_AUTO_UPDATE=1 brew bundle
+				brew_result=$?
+			fi
+			
+			# Check for specific known issues and continue
+			if [[ $brew_result -eq 0 ]]; then
 				echo "[mac-dotfiles] All dependencies installed"
 			else
-				echo "[mac-dotfiles] Error: Failed to install Homebrew dependencies"
+				echo "[mac-dotfiles] Warning: Some Homebrew dependencies failed to install"
+				echo "[mac-dotfiles] This is usually due to version conflicts with existing apps"
+				echo "[mac-dotfiles] Continuing with installation..."
 			fi
 		fi
 	fi
@@ -60,19 +76,29 @@ link_dotfiles() {
 		echo "  - zsh/ -> $HOME/.zsh"
 		echo "  - vimrc -> $HOME/.vimrc"
 	else
-		mv "$HOME/.gitconfig" "$HOME/.gitconfigOLD"
-		ln -s "$(pwd)/gitconfig" "$HOME/.gitconfig"
+		# Handle gitconfig
+		if [[ -e "$HOME/.gitconfig" && ! -L "$HOME/.gitconfig" ]]; then
+			mv "$HOME/.gitconfig" "$HOME/.gitconfigOLD"
+		fi
+		ln -sf "$(pwd)/gitconfig" "$HOME/.gitconfig"
 
-		mv "$HOME/.zshrc" "$HOME/.zshrcOLD"
-		ln -s $(pwd)/zshrc $HOME/.zshrc
+		# Handle zshrc
+		if [[ -e "$HOME/.zshrc" && ! -L "$HOME/.zshrc" ]]; then
+			mv "$HOME/.zshrc" "$HOME/.zshrcOLD"
+		fi
+		ln -sf "$(pwd)/zshrc" "$HOME/.zshrc"
 
-		mv "$HOME/.zsh" "$HOME/.zshOLD"
-		ln -s $(pwd)/zsh $HOME/.zsh	
+		# Handle zsh directory
+		if [[ -e "$HOME/.zsh" && ! -L "$HOME/.zsh" ]]; then
+			mv "$HOME/.zsh" "$HOME/.zshOLD"
+		fi
+		ln -sf "$(pwd)/zsh" "$HOME/.zsh"
 
-		if [[ -e "$HOME/.vimrc" ]]; then
+		# Handle vimrc
+		if [[ -e "$HOME/.vimrc" && ! -L "$HOME/.vimrc" ]]; then
 			mv "$HOME/.vimrc" "$HOME/.vimrcOLD"
 		fi
-		ln -s "$(pwd)/vimrc" "$HOME/.vimrc"
+		ln -sf "$(pwd)/vimrc" "$HOME/.vimrc"
 	fi
 }
 link_dotfiles

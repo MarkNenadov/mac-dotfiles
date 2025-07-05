@@ -23,10 +23,13 @@ A collection of dotfiles and configuration scripts for macOS, optimized for ZSH 
 # Preview changes without making them (dry run)
 ./install.sh --dry-run
 
+# Quiet installation (reduces Homebrew noise)
+./install.sh --quiet
+
 # Combine options (e.g., dry run without Homebrew)
 ./install.sh --dry-run --skip-brew
 
-# Update your dotfiles
+# Update your dotfiles (uses quiet mode)
 ./update.sh
 ```
 
