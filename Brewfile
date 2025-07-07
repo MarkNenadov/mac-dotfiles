@@ -14,7 +14,6 @@ brew 'pyenv'
 brew 'poetry'
 brew 'rust'
 brew 'grype'
-brew 'claude-cli'
 
 cask 'audacity'
 cask 'gimp'
