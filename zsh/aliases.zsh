@@ -91,3 +91,6 @@ alias upgrade="brew upgrade"
 alias ccd="cd"
 alias lls="ls"
 alias cim="vim"
+
+# various
+alias e64=encode64
