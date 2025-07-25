@@ -136,6 +136,7 @@ echo "[mac-dotfiles] Installing python dependencies"
 if [[ "$DRY_RUN" == "true" ]]; then
 	echo "[mac-dotfiles] [DRY RUN] Would install Python dependencies from python-requirements.txt"
 else
+	pip install --upgrade pip
 	python3 -m pip install -r python-requirements.txt
 fi
 
