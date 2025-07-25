@@ -1,11 +1,9 @@
-# basic shell
-
+# This sources all .zsh files from the ~/.zsh/ directory for better organization
 for module in ~/.zsh/*.zsh; do
 	source "$module"
 done
 
-
-# helper functions
+# Custom utility functions
 
 function  encode64() {
   if [ -f "$1" ]; then
@@ -27,27 +25,10 @@ function  encode64() {
   fi
 }
 
-function versions() {
-	bun_version=$(bun --version)
-	echo "Bun: $bun_version"
-
-	node_version="$(node --version)"
-	echo "Node: $node_version"
-
-	npm_version="$(npm --version)"
-	echo "Npm: $npm_version" 
-	
-	python_version="$(python --version)"
-	echo "Python: $python_version"
-
-	ruby_version="$(ruby --version)"
-	echo "Ruby: $ruby_version"
-}
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# add temporal
+# temporal
 export PATH=$PATH:$HOME/.temporalio/bin
 
 # bun completions
