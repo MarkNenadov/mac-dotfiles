@@ -91,7 +91,7 @@ alias zu="unzip"
 
 # installation
 
-alias upgrade="brew upgrade"
+alias upgrade="brew update && brew upgrade"
 
 # typos
 
