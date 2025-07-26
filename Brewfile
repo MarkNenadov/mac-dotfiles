@@ -1,24 +1,37 @@
-brew 'git'
-brew 'wget'
-brew 'nmap'
-brew 'htop'
-brew 'telnet'
-brew 'postgresql@14'
-brew 'maven'
-brew 'rbenv'
-brew 'jless'
-brew 'jenv'
-brew 'ant'
-brew 'pyenv'
-brew 'poetry'
-brew 'rust'
-brew 'grype'
-brew 'yamllint'
-brew 'rg'
+## Apps
 
+cask 'spotify'
 #cask 'audacity'
 #cask 'gimp'
-cask 'postman'
-cask 'spotify'
+
+## IDEs
+
 cask 'visual-studio-code'
 cask 'cursor'
+brew 'neovim'
+
+## Version/Package Management
+
+brew 'git'
+brew 'maven'
+brew 'mise'
+brew 'poetry'
+
+## Security/Networking
+
+brew 'grype'
+brew 'nmap'
+brew 'telnet'
+
+## OOther
+
+cask 'postman'
+brew 'wget'
+brew 'htop'
+brew 'postgresql@14'
+brew 'jless'
+brew 'ant'
+brew 'rust'
+brew 'yamllint'
+brew 'rg'
+brew 'duf'
