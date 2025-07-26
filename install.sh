@@ -74,40 +74,17 @@ do_brew() {
 	fi
 }
 
-inject_aliases() {
+# Load the inject-aliases library
+source "$(pwd)/zsh/lib/inject-aliases.zsh"
+
+handle_inject_aliases() {
 	if [[ -n "$INJECT_ALIASES" ]]; then
-		if [[ "$DRY_RUN" == "true" ]]; then
-			echo "[mac-dotfiles] [DRY RUN] Would inject aliases from zsh/aliases.zsh to $INJECT_ALIASES"
-		else
-			echo "[mac-dotfiles] Injecting aliases to $INJECT_ALIASES..."
-			
-			# Create target file if it doesn't exist
-			if [[ ! -f "$INJECT_ALIASES" ]]; then
-				touch "$INJECT_ALIASES"
-			fi
-			
-			# Add injection header
-			echo "" >> "$INJECT_ALIASES"
-			echo "# ==== mac-dotfiles aliases injection $(date) ====" >> "$INJECT_ALIASES"
-			echo "" >> "$INJECT_ALIASES"
-			
-			# Inject content from aliases.zsh only
-			if [[ -f "zsh/aliases.zsh" ]]; then
-				echo "# From zsh/aliases.zsh" >> "$INJECT_ALIASES"
-				cat "zsh/aliases.zsh" >> "$INJECT_ALIASES"
-				echo "" >> "$INJECT_ALIASES"
-			else
-				echo "[mac-dotfiles] Warning: zsh/aliases.zsh not found"
-			fi
-			
-			echo "# ==== End mac-dotfiles injection ====" >> "$INJECT_ALIASES"
-			echo "[mac-dotfiles] Aliases injected successfully to $INJECT_ALIASES"
-		fi
-		return
+		inject_aliases "$INJECT_ALIASES" "$DRY_RUN"
+		return $?
 	fi
 }
 
-inject_aliases
+handle_inject_aliases
 if [[ -n "$INJECT_ALIASES" ]]; then
 	exit 0
 fi
@@ -166,7 +143,7 @@ install_zshlilly() {
 }
 install_zshlilly
 
-isntall_language_runtimes() {
+install_language_runtimes() {
 	if [[ "$DRY_RUN" == "true" ]]; then
 		echo "[mac-dotfiles] [DRY RUN] Would be installing python, ruby, and java with mise"
 	else
@@ -178,7 +155,7 @@ isntall_language_runtimes() {
 		mise use -g python@latest ruby@latest java@zulu-24.32.13.0
 	fi
 }
-isntall_language_runtimes
+install_language_runtimes
 
 install_python_dependencies() {
 	if [[ "$DRY_RUN" == "true" ]]; then
@@ -186,8 +163,8 @@ install_python_dependencies() {
 	else
 		echo "[mac-dotfiles] Installing python dependencies from python-requirements.txt"
 		pip install --upgrade pip
-	python3 -m pip install -r python-requirements.txt
-fi
+		python3 -m pip install -r python-requirements.txt
+	fi
 }
 install_python_dependencies
 
