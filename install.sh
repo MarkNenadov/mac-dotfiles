@@ -2,6 +2,10 @@
 
 set -e
 
+readonly HOMEBREW_INSTALL_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+readonly ZSHLILLY_REPO_URL="https://github.com/MarkNenadov/zshlilly.git"
+readonly MISE_JAVA_VERSION="zulu-24.32.13.0"
+
 DRY_RUN=false
 QUIET=false
 INJECT_ALIASES=""
@@ -43,7 +47,7 @@ do_brew() {
 				echo "[mac-dotfiles] [DRY RUN] Would install Homebrew..."
 			else
 				echo "[mac-dotfiles] Installing homebrew..."
-				/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+				/usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_INSTALL_URL)"
 				echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
 				eval "$(/opt/homebrew/bin/brew shellenv)"
 			fi
@@ -134,7 +138,7 @@ install_zshlilly() {
 	if [[ "$DRY_RUN" == "true" ]]; then
 		echo "[mac-dotfiles] [DRY RUN] Would install zshlilly"
 	else
-		git clone https://github.com/MarkNenadov/zshlilly.git
+		git clone $ZSHLILLY_REPO_URL
 		cd zshlilly
 		./install.zsh $HOME
 		cd ..
@@ -150,9 +154,9 @@ install_language_runtimes() {
 		echo "[mac-dotfiles] Installing python, ruby, and java with mise"
 		mise install python@latest
 		mise install ruby@latest
-		mise install java@zulu-24.32.13.0
+		mise install java@$MISE_JAVA_VERSION
 
-		mise use -g python@latest ruby@latest java@zulu-24.32.13.0
+		mise use -g python@latest ruby@latest java@$MISE_JAVA_VERSION
 	fi
 }
 install_language_runtimes

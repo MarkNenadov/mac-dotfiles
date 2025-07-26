@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # bun completions
-[ -s "/Users/markn/.bun/_bun" ] && source "/Users/markn/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
