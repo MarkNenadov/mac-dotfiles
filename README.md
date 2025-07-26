@@ -105,6 +105,9 @@ Documentation
 
 - Always give credit in `README.md` for dotfile repositories I "borrow" form
 
+## TODO
+
+I've placed TODOs/ideas in TODO.md
 
 ## Contributing
 
