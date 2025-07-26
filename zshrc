@@ -25,6 +25,10 @@ function  encode64() {
   fi
 }
 
+function silent-unalias() {
+  unalias $1 2>/dev/null
+}
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 

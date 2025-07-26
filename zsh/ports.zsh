@@ -1,5 +1,5 @@
-unalias whatison 2>/dev/null
-unalias openports 2>/dev/null
+silent-unalias whatison
+silent-unalias openports
 
 whatison() {
     if [ -z "$1" ]; then
