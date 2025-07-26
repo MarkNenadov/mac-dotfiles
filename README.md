@@ -85,6 +85,8 @@ f1                   # awk '{print $1}'
 last_commit     # Show time since last commit in git repo
 docker_prune    # Clean up Docker volumes
 randpass        # Generate a random password
+openports       # find open ports by search string
+server          # serve up a python http server with the current dir
 ```
 
 ## Patterns / Opinions / Conventions
