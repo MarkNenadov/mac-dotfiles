@@ -13,11 +13,6 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 - 🔧 Git configuration with helpful aliases
 - 📝 Vim configuration
 
-## Design Principles / Opinions / Conventions
-
-- Always use `function` keyword in function definitions
-- Always give credit in `README.md` for dotfile repositories I "borrow" form
-
 ## Quick Start
 
 ```bash
@@ -61,7 +56,7 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 - `.zsh/aliases.zsh` - Shell aliases
 - `.zsh/*.zsh` - Utility functions organized by category
 
-## Useful Aliases
+## Useful Aliases ( a few examples)
 
 ```bash
 # Network
@@ -83,7 +78,7 @@ a+w                  # chmod a+w
 f1                   # awk '{print $1}'
 ```
 
-## Utility Functions
+## Utility Functions (a few examples)
 
 ```bash
 2png test.jpg   # Convert test.jpg to test.png
@@ -91,6 +86,16 @@ last_commit     # Show time since last commit in git repo
 docker_prune    # Clean up Docker volumes
 randpass        # Generate a random password
 ```
+
+## Patterns / Design Principles / Opinions / Conventions
+
+- Single-command setup
+- Non-destructive updates
+- Attempt to attain to modularity
+- Attempt to default to safety -- validate parameters where possible
+- Always use `function` keyword in function definitions
+- Always give credit in `README.md` for dotfile repositories I "borrow" form
+
 
 ## Contributing
 
