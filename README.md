@@ -102,3 +102,4 @@ Thanks to the following developers for inspiration and ideas:
 * Mathias Bynens (https://github.com/mathiasbynens)
 * Wade Simmons (https://github.com/wadey)
 * Roman Ožana (https://github.com/OzzyCzech)
+* Cassia Scheffer (https://github.com/cassiascheffer)
