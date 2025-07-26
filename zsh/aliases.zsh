@@ -29,6 +29,10 @@ alias p="cd ~/CodeProjects"
 alias path='echo -e ${PATH//:/\\n}'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# alternate commands
+
+alias grep="rg" # ripgrep
+
 # temporal
 alias now='date +"%T"'
 alias nowtime=now

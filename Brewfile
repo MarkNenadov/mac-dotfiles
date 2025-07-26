@@ -14,6 +14,7 @@ brew 'poetry'
 brew 'rust'
 brew 'grype'
 brew 'yamllint'
+brew 'rg'
 
 #cask 'audacity'
 #cask 'gimp'
