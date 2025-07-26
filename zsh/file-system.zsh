@@ -6,5 +6,5 @@ mkcd() {
 trash() { mv $1 ~/.Trash }
 
 f() {
-    find . -name "$1"
+    find . -name "$1*"
 }
