@@ -1,6 +1,8 @@
 # mac-dotfiles
 
-Mark Nenadov's dotfiles and configuration scripts for macOS, optimized for ZSH and Homebrew environments.
+My dotfiles and configuration scripts for macOS, optimized for ZSH and Homebrew environments.
+
+I've shared some thoughts on this subject over at my blog: https://wondering.willow.camp/the-joys-of-dotfiles
 
 ## Features
 
