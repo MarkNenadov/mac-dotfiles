@@ -13,6 +13,11 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 - 🔧 Git configuration with helpful aliases
 - 📝 Vim configuration
 
+## Design Principles / Opinions / Conventions
+
+- Always use `function` keyword in function definitions
+- Always give credit in `README.md` for dotfile repositories I "borrow" form
+
 ## Quick Start
 
 ```bash

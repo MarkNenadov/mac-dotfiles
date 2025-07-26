@@ -1,7 +1,7 @@
 silent-unalias whatison
 silent-unalias openports
 
-whatison() {
+function whatison() {
     if [ -z "$1" ]; then
         echo "Usage: whatison <port_number>"
         return 1
@@ -9,7 +9,7 @@ whatison() {
     sudo lsof -i :$1
 }
 
-openports() {
+function openports() {
     if [ -z "$1" ]; then
         echo "Usage: openports <search string>"
         return 1

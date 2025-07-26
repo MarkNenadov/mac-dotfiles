@@ -1,7 +1,7 @@
 # Start HTTP server from current directory
 # from https://github.com/cassiascheffer/dotfiles/blob/main/zsh/.zshrc
 
-server() {
+function server() {
     local port="${1:-8000}"
     echo "Starting HTTP server on port $port..."
     echo "Open http://localhost:$port in your browser"

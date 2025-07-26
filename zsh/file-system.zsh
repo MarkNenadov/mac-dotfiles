@@ -1,4 +1,4 @@
-mkcd() {
+function mkcd() {
     if [ -z "$1" ]; then
         echo "Usage: mkcd <directory_name>"
         return 1
@@ -7,7 +7,7 @@ mkcd() {
     cd "$1" || return 1
 }
 
-trash() {
+function trash() {
     if [ -z "$1" ]; then
         echo "Usage: trash <file_or_directory>"
         return 1
@@ -29,6 +29,6 @@ trash() {
     mv "$1" ~/.Trash
 }
 
-f() {
+function f() {
     find . -name "$1*"
 }
