@@ -2,6 +2,9 @@
 
 silent_unalias versions
 
+# Display versions for commonly used development tools
+# Outputs: Bun, Node.js, npm, Python, and Ruby version information
+# Usage: versions
 function versions() {
 	bun_version=$(bun --version)
 	echo "Bun: $bun_version"
