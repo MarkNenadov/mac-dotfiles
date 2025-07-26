@@ -25,7 +25,6 @@ alias df="df -h"
 alias cls="clear"
 alias d="cd ~/Documents"
 alias dl="cd ~/Documents"
-alias p="cd ~/CodeProjects"
 alias path='echo -e ${PATH//:/\\n}'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
