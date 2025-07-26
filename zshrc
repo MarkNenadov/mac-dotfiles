@@ -1,3 +1,7 @@
+function silent_unalias() {
+  unalias $1 2>/dev/null
+}
+
 # This sources all .zsh files from the ~/.zsh/ directory for better organization
 for module in ~/.zsh/*.zsh; do
 	source "$module"
@@ -23,10 +27,6 @@ function  encode64() {
       printf '%s' "$1" | base64
     fi
   fi
-}
-
-function silent_unalias() {
-  unalias $1 2>/dev/null
 }
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
