@@ -118,24 +118,30 @@ install_zshlilly() {
 }
 install_zshlilly
 
-if [[ "$DRY_RUN" == "true" ]]; then
-	echo "[mac-dotfiles] [DRY RUN] Would be installing python, ruby, and java with mise"
-else
-	echo "[mac-dotfiles] Installing python, ruby, and java with mise"
-	mise install python@latest
-	mise install ruby@latest
-	mise install java@zulu-24.32.13.0
+isntall_language_runtimes() {
+	if [[ "$DRY_RUN" == "true" ]]; then
+		echo "[mac-dotfiles] [DRY RUN] Would be installing python, ruby, and java with mise"
+	else
+		echo "[mac-dotfiles] Installing python, ruby, and java with mise"
+		mise install python@latest
+		mise install ruby@latest
+		mise install java@zulu-24.32.13.0
 
-	mise use -g python@latest ruby@latest java@zulu-24.32.13.0
-fi
+		mise use -g python@latest ruby@latest java@zulu-24.32.13.0
+	fi
+}
+isntall_language_runtimes
 
-if [[ "$DRY_RUN" == "true" ]]; then
-	echo "[mac-dotfiles] [DRY RUN] Would install Python dependencies from python-requirements.txt"
-else
-	echo "[mac-dotfiles] Installing python dependencies from python-requirements.txt"
-	pip install --upgrade pip
+install_python_dependencies() {
+	if [[ "$DRY_RUN" == "true" ]]; then
+		echo "[mac-dotfiles] [DRY RUN] Would install Python dependencies from python-requirements.txt"
+	else
+		echo "[mac-dotfiles] Installing python dependencies from python-requirements.txt"
+		pip install --upgrade pip
 	python3 -m pip install -r python-requirements.txt
 fi
+}
+install_python_dependencies
 
 if [[ "$DRY_RUN" == "true" ]]; then
 	echo "[mac-dotfiles] [DRY RUN] Installation simulation complete. No changes were made."
