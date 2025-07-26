@@ -98,8 +98,8 @@ General
 
 Functions
 
-- Functions are preferred over aliases
-- Always use `function` keyword in function definitions
+- Functions are preferred over aliases (especially when command can be made safer/clearer)
+- Always use `function` keyword in function definitions (hence use of silent_unalias to ensure functions are not blocked by aliases)
 
 Documentation
 
