@@ -6,6 +6,15 @@ readonly HOMEBREW_INSTALL_URL="https://raw.githubusercontent.com/Homebrew/instal
 readonly ZSHLILLY_REPO_URL="https://github.com/MarkNenadov/zshlilly.git"
 readonly MISE_JAVA_VERSION="zulu-24.32.13.0"
 
+# Logging helper functions
+log() {
+	echo "[mac-dotfiles] $1"
+}
+
+log_dry_run() {
+	echo "[mac-dotfiles] [DRY RUN] $1"
+}
+
 DRY_RUN=false
 QUIET=false
 INJECT_ALIASES=""
@@ -44,9 +53,9 @@ do_brew() {
 	if [[ "$SKIP_BREW" != "true" ]]; then
 		if [ ! $(which brew) ]; then
 			if [[ "$DRY_RUN" == "true" ]]; then
-				echo "[mac-dotfiles] [DRY RUN] Would install Homebrew..."
+				log_dry_run "Would install Homebrew..."
 			else
-				echo "[mac-dotfiles] Installing homebrew..."
+				log "Installing homebrew..."
 				/usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_INSTALL_URL)"
 				echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
 				eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -54,9 +63,9 @@ do_brew() {
 		fi
 
 		if [[ "$DRY_RUN" == "true" ]]; then
-			echo "[mac-dotfiles] [DRY RUN] Would install Homebrew dependencies..."
+			log_dry_run "Would install Homebrew dependencies..."
 		else
-			echo "[mac-dotfiles] Installing dependencies via Homebrew..."
+			log "Installing dependencies via Homebrew..."
 			brew tap anchore/grype
 			if [[ "$QUIET" == "true" ]]; then
 				HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --quiet 2>/dev/null
@@ -68,11 +77,11 @@ do_brew() {
 			
 			# Check for specific known issues and continue
 			if [[ $brew_result -eq 0 ]]; then
-				echo "[mac-dotfiles] All dependencies installed"
+				log "All dependencies installed"
 			else
-				echo "[mac-dotfiles] Warning: Some Homebrew dependencies failed to install"
-				echo "[mac-dotfiles] This is usually due to version conflicts with existing apps"
-				echo "[mac-dotfiles] Continuing with installation..."
+				log "Warning: Some Homebrew dependencies failed to install"
+				log "This is usually due to version conflicts with existing apps"
+				log "Continuing with installation..."
 			fi
 		fi
 	fi
@@ -95,11 +104,11 @@ fi
 
 do_brew
 
-echo "[mac-dotfiles] Linking dotfiles..."
+log "Linking dotfiles..."
 
 link_dotfiles() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would link:"
+		log_dry_run "Would link:"
 		echo "  - gitconfig -> $HOME/.gitconfig"
 		echo "  - zshrc -> $HOME/.zshrc"
 		echo "  - zsh/ -> $HOME/.zsh"
@@ -132,11 +141,11 @@ link_dotfiles() {
 }
 link_dotfiles
 
-echo "[mac-dotfiles] Installing zshlilly in $HOME"
+log "Installing zshlilly in $HOME"
 
 install_zshlilly() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would install zshlilly"
+		log_dry_run "Would install zshlilly"
 	else
 		git clone $ZSHLILLY_REPO_URL
 		cd zshlilly
@@ -149,9 +158,9 @@ install_zshlilly
 
 install_language_runtimes() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would be installing python, ruby, and java with mise"
+		log_dry_run "Would be installing python, ruby, and java with mise"
 	else
-		echo "[mac-dotfiles] Installing python, ruby, and java with mise"
+		log "Installing python, ruby, and java with mise"
 		mise install python@latest
 		mise install ruby@latest
 		mise install java@$MISE_JAVA_VERSION
@@ -163,9 +172,9 @@ install_language_runtimes
 
 install_python_dependencies() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would install Python dependencies from python-requirements.txt"
+		log_dry_run "Would install Python dependencies from python-requirements.txt"
 	else
-		echo "[mac-dotfiles] Installing python dependencies from python-requirements.txt"
+		log "Installing python dependencies from python-requirements.txt"
 		pip install --upgrade pip
 		python3 -m pip install -r python-requirements.txt
 	fi
@@ -173,7 +182,7 @@ install_python_dependencies() {
 install_python_dependencies
 
 if [[ "$DRY_RUN" == "true" ]]; then
-	echo "[mac-dotfiles] [DRY RUN] Installation simulation complete. No changes were made."
+	log_dry_run "Installation simulation complete. No changes were made."
 else
-	echo "[mac-dotfiles] Finished."
+	log "Finished."
 fi
