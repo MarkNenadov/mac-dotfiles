@@ -5,4 +5,3 @@ whatison() {
     fi
     sudo lsof -i :$1
 }
-xx
