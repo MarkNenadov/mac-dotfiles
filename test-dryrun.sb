@@ -1,0 +1,12 @@
+; config to allow test-dryrun.sh to verify the dryrun is actually "dry"
+(version 1)
+
+(deny default)
+
+(allow process-exec)
+(allow process-fork)
+(allow file-read*)
+(allow file-write* (literal "/dev/stdout"))
+(allow file-write* (literal "/dev/stderr"))
+(allow system-info)
+(allow sysctl-read)
