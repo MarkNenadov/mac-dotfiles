@@ -15,6 +15,23 @@ log_dry_run() {
 	echo "[mac-dotfiles] [DRY RUN] $1"
 }
 
+# Backup existing file and create symlink
+backup_and_link() {
+	local source_file="$1"
+	local target_path="$2"
+	local is_directory="${3:-false}"
+	
+	if [[ -e "$target_path" && ! -L "$target_path" ]]; then
+		mv "$target_path" "${target_path}OLD"
+	fi
+	
+	if [[ "$is_directory" == "true" ]]; then
+		ln -sfn "$source_file" "$target_path"
+	else
+		ln -sf "$source_file" "$target_path"
+	fi
+}
+
 DRY_RUN=false
 QUIET=false
 INJECT_ALIASES=""
@@ -115,28 +132,16 @@ link_dotfiles() {
 		echo "  - vimrc -> $HOME/.vimrc"
 	else
 		# Handle gitconfig
-		if [[ -e "$HOME/.gitconfig" && ! -L "$HOME/.gitconfig" ]]; then
-			mv "$HOME/.gitconfig" "$HOME/.gitconfigOLD"
-		fi
-		ln -sf "$(pwd)/gitconfig" "$HOME/.gitconfig"
+		backup_and_link "$(pwd)/gitconfig" "$HOME/.gitconfig"
 
 		# Handle zshrc
-		if [[ -e "$HOME/.zshrc" && ! -L "$HOME/.zshrc" ]]; then
-			mv "$HOME/.zshrc" "$HOME/.zshrcOLD"
-		fi
-		ln -sf "$(pwd)/zshrc" "$HOME/.zshrc"
+		backup_and_link "$(pwd)/zshrc" "$HOME/.zshrc"
 
 		# Handle zsh directory
-		if [[ -e "$HOME/.zsh" && ! -L "$HOME/.zsh" ]]; then
-			mv "$HOME/.zsh" "$HOME/.zshOLD"
-		fi
-		ln -sfn "$(pwd)/zsh" "$HOME/.zsh"
+		backup_and_link "$(pwd)/zsh" "$HOME/.zsh" true
 
 		# Handle vimrc
-		if [[ -e "$HOME/.vimrc" && ! -L "$HOME/.vimrc" ]]; then
-			mv "$HOME/.vimrc" "$HOME/.vimrcOLD"
-		fi
-		ln -sf "$(pwd)/vimrc" "$HOME/.vimrc"
+		backup_and_link "$(pwd)/vimrc" "$HOME/.vimrc"
 	fi
 }
 link_dotfiles
