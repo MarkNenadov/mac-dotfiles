@@ -1,3 +1,5 @@
+silent_unalias server
+
 # Start HTTP server from current directory
 # from https://github.com/cassiascheffer/dotfiles/blob/main/zsh/.zshrc
 

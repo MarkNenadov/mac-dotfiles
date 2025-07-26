@@ -1,5 +1,5 @@
-silent-unalias whatison
-silent-unalias openports
+silent_unalias whatison
+silent_unalias openports
 
 function whatison() {
     if [ -z "$1" ]; then

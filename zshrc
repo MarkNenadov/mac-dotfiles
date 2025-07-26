@@ -25,7 +25,7 @@ function  encode64() {
   fi
 }
 
-function silent-unalias() {
+function silent_unalias() {
   unalias $1 2>/dev/null
 }
 

@@ -1,3 +1,7 @@
+silent_unalias 2heic
+silent_unalias 2png
+silent_unalias 2jpg
+
 function 2heic() {
   if [ $# -eq 0 ]; then
     echo "Error: No files specified. Usage: 2heic <file1> [file2 ...]"

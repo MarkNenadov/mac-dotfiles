@@ -1,3 +1,7 @@
+silent_unalias mkcd
+silent_unalias trash
+silent_unalias f
+
 function mkcd() {
     if [ -z "$1" ]; then
         echo "Usage: mkcd <directory_name>"

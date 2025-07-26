@@ -1,4 +1,6 @@
 
+silent_unalias versions
+
 function versions() {
 	bun_version=$(bun --version)
 	echo "Bun: $bun_version"
