@@ -15,6 +15,7 @@ This is a macOS dotfiles repository that provides configuration files and instal
 - `./install.sh --dry-run` - Preview changes without making them
 - `./install.sh --quiet` - Quiet installation (reduces Homebrew noise)
 - `./install.sh --dry-run --skip-brew` - Dry run without Homebrew
+- `./install.sh --inject-aliases <file>` - Inject aliases from zsh/aliases.zsh to specified file (exits after injection)
 - `./update.sh` - Update dotfiles (pulls from git and reinstalls with quiet mode)
 
 ### No Build/Test Commands

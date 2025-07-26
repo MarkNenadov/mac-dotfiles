@@ -31,6 +31,9 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 # Combine options (e.g., dry run without Homebrew)
 ./install.sh --dry-run --skip-brew
 
+# Inject aliases to an existing file (exits after injection)
+./install.sh --inject-aliases ~/.my_aliases
+
 # Update your dotfiles (uses quiet mode)
 ./update.sh
 ```

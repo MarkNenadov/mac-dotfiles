@@ -4,6 +4,7 @@ set -e
 
 DRY_RUN=false
 QUIET=false
+INJECT_ALIASES=""
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -19,6 +20,14 @@ while [[ $# -gt 0 ]]; do
 		--quiet)
 			QUIET=true
 			shift
+			;;
+		--inject-aliases)
+			INJECT_ALIASES="$2"
+			if [[ -z "$INJECT_ALIASES" ]]; then
+				echo "Error: --inject-aliases requires a target file path"
+				exit 1
+			fi
+			shift 2
 			;;
 		*)
 			echo "Unknown option: $1"
@@ -64,6 +73,45 @@ do_brew() {
 		fi
 	fi
 }
+
+inject_aliases() {
+	if [[ -n "$INJECT_ALIASES" ]]; then
+		if [[ "$DRY_RUN" == "true" ]]; then
+			echo "[mac-dotfiles] [DRY RUN] Would inject aliases from zsh/aliases.zsh to $INJECT_ALIASES"
+		else
+			echo "[mac-dotfiles] Injecting aliases to $INJECT_ALIASES..."
+			
+			# Create target file if it doesn't exist
+			if [[ ! -f "$INJECT_ALIASES" ]]; then
+				touch "$INJECT_ALIASES"
+			fi
+			
+			# Add injection header
+			echo "" >> "$INJECT_ALIASES"
+			echo "# ==== mac-dotfiles aliases injection $(date) ====" >> "$INJECT_ALIASES"
+			echo "" >> "$INJECT_ALIASES"
+			
+			# Inject content from aliases.zsh only
+			if [[ -f "zsh/aliases.zsh" ]]; then
+				echo "# From zsh/aliases.zsh" >> "$INJECT_ALIASES"
+				cat "zsh/aliases.zsh" >> "$INJECT_ALIASES"
+				echo "" >> "$INJECT_ALIASES"
+			else
+				echo "[mac-dotfiles] Warning: zsh/aliases.zsh not found"
+			fi
+			
+			echo "# ==== End mac-dotfiles injection ====" >> "$INJECT_ALIASES"
+			echo "[mac-dotfiles] Aliases injected successfully to $INJECT_ALIASES"
+		fi
+		return
+	fi
+}
+
+inject_aliases
+if [[ -n "$INJECT_ALIASES" ]]; then
+	exit 0
+fi
+
 do_brew
 
 echo "[mac-dotfiles] Linking dotfiles..."
