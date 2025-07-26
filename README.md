@@ -8,7 +8,7 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 
 - 🚀 Quick setup with a single command
 - 🛠️ Homebrew package management
-- 🐍 Python environment configuration
+- 🐍 Python/Ruby/Java environment configuration with mise
 - 🎨 Custom ZSH configuration with useful aliases and functions
 - 🔧 Git configuration with helpful aliases
 - 📝 Vim configuration
