@@ -32,6 +32,9 @@ function  encode64() {
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Mise 
+eval "$(mise activate zsh)"
+
 # temporal
 export PATH=$PATH:$HOME/.temporalio/bin
 

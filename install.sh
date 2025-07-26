@@ -118,24 +118,21 @@ install_zshlilly() {
 }
 install_zshlilly
 
-echo "[mac-dotfiles] Installing latest python"
+if [[ "$DRY_RUN" == "true" ]]; then
+	echo "[mac-dotfiles] [DRY RUN] Would be installing python, ruby, and java with mise"
+else
+	echo "[mac-dotfiles] Installing python, ruby, and java with mise"
+	mise install python@latest
+	mise install ruby@latest
+	mise install java@zulu-24.32.13.0
 
-install_latest_python() {
-	if [[ "$DRY_RUN" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would install latest Python version"
-	else
-		latest_version=$(pyenv install --list | grep -v - | grep -v b | grep -v r | grep -v t  | tail -1 | xargs)
-		pyenv install $latest_version
-		pyenv global $latest_version
-	fi
-}
-install_latest_python || echo "[mac-dotfiles] failed installing python"
-
-echo "[mac-dotfiles] Installing python dependencies"
+	mise use -g python@latest ruby@latest java@zulu-24.32.13.0
+fi
 
 if [[ "$DRY_RUN" == "true" ]]; then
 	echo "[mac-dotfiles] [DRY RUN] Would install Python dependencies from python-requirements.txt"
 else
+	echo "[mac-dotfiles] Installing python dependencies from python-requirements.txt"
 	pip install --upgrade pip
 	python3 -m pip install -r python-requirements.txt
 fi
