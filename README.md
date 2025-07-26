@@ -87,13 +87,22 @@ docker_prune    # Clean up Docker volumes
 randpass        # Generate a random password
 ```
 
-## Patterns / Design Principles / Opinions / Conventions
+## Patterns / Opinions / Conventions
+
+General
 
 - Single-command setup
 - Non-destructive updates
 - Attempt to attain to modularity
 - Attempt to default to safety -- validate parameters where possible
+
+Functions
+
+- Functions are preferred over aliases
 - Always use `function` keyword in function definitions
+
+Documentation
+
 - Always give credit in `README.md` for dotfile repositories I "borrow" form
 
 
