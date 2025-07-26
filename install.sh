@@ -92,7 +92,7 @@ link_dotfiles() {
 		if [[ -e "$HOME/.zsh" && ! -L "$HOME/.zsh" ]]; then
 			mv "$HOME/.zsh" "$HOME/.zshOLD"
 		fi
-		ln -sf "$(pwd)/zsh" "$HOME/.zsh"
+		ln -sfn "$(pwd)/zsh" "$HOME/.zsh"
 
 		# Handle vimrc
 		if [[ -e "$HOME/.vimrc" && ! -L "$HOME/.vimrc" ]]; then
