@@ -32,6 +32,7 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # alternate commands
 
 alias grep="rg" # ripgrep
+alias du="duf"
 
 # temporal
 alias now='date +"%T"'
