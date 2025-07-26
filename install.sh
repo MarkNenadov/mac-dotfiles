@@ -124,7 +124,7 @@ install_latest_python() {
 	if [[ "$DRY_RUN" == "true" ]]; then
 		echo "[mac-dotfiles] [DRY RUN] Would install latest Python version"
 	else
-		latest_version=$(pyenv install --list | grep -v - | grep -v b | tail -1)
+		latest_version=$(pyenv install --list | grep -v - | grep -v b | grep -v r | grep -v t  | tail -1 | xargs)
 		pyenv install $latest_version
 		pyenv global $latest_version
 	fi
