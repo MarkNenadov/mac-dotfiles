@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 silent_unalias last_commit
 silent_unalias clean_branches
 

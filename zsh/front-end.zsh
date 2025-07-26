@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # bun completions
 [ -s "/Users/markn/.bun/_bun" ] && source "/Users/markn/.bun/_bun"
 

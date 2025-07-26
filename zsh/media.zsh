@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 silent_unalias 2heic
 silent_unalias 2png
 silent_unalias 2jpg

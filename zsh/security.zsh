@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 silent_unalias randpass
 
 function randpass() {

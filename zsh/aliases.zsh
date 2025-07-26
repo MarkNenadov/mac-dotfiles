@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 alias mv='mv -i'
 for c in cp rm chmod chown rename; do
   alias $c="$c -v"

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 silent_unalias whatison
 silent_unalias openports
 
