@@ -162,7 +162,7 @@ link_dotfiles() {
 
 		# Handle VS Code settings
 		mkdir -p "$HOME/Library/Application Support/Code/User"
-		backup_and_link "$(pwd)/vscode/settings.json" "$HOMEF"
+		backup_and_link "$(pwd)/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 		
 		# Handle Cursor settings
 		mkdir -p "$HOME/Library/Application Support/Cursor/User"
