@@ -32,3 +32,12 @@ function server() {
     sleep 1 && open "http://localhost:$port/" &
     python3 -m http.server "$port"
 }
+
+function guessos() {
+    if [ $# -eq 0 ]; then
+        echo "Error: No ip address specified. Usage: guessos <ip_address>"
+        return 1
+    fi
+
+    sudo nmap -O $1
+}
