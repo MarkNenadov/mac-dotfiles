@@ -128,6 +128,13 @@ else
     cat vscode/extensions.txt | xargs -n 1 code --install-extension >/dev/null 2>&1
 fi
 
+if [[ "$DRY_RUN" == "true" ]]; then
+    log_dry_run "Would be installing cursor extensions from cursor/extensions.txt"
+else
+    log "Installing cursor extensions from cursor/extensions.txt"
+    cat cursor/extensions.txt | xargs -n 1 cursor --install-extension >/dev/null 2>&1
+fi
+
 
 log "Linking dotfiles..."
 
