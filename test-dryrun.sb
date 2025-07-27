@@ -1,4 +1,4 @@
-; config to allow test-dryrun.sh to verify the dryrun is actually "dry"
+; config to allow test-dryrun.zsh to verify the dryrun is actually "dry"
 (version 1)
 
 (deny default)

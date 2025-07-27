@@ -17,26 +17,26 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 
 ```bash
 # Full installation (including Homebrew packages)
-./install.sh
+./install.zsh
 
 # Installation without Homebrew packages
-./install.sh --skip-brew
+./install.zsh --skip-brew
 
 # Preview changes without making them (dry run)
-./install.sh --dry-run
+./install.zsh --dry-run
 
 # Quiet installation (reduces Homebrew noise)
-./install.sh --quiet
+./install.zsh --quiet
 
 # Combine options (e.g., dry run without Homebrew)
-./install.sh --dry-run --skip-brew
+./install.zsh --dry-run --skip-brew
 
 # Inject aliases to an existing file (exits after injection)
 # Skips comments/blank lines, detects conflicts, avoids duplicates
-./install.sh --inject-aliases ~/.my_aliases
+./install.zsh --inject-aliases ~/.my_aliases
 
 # Update your dotfiles (uses quiet mode)
-./update.sh
+./update.zsh
 ```
 
 ## Requirements

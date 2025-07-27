@@ -10,13 +10,13 @@ This is a macOS dotfiles repository that provides configuration files and instal
 
 ### Installation and Setup
 
-- `./install.sh` - Full installation including Homebrew packages
+- `./install.zsh` - Full installation including Homebrew packages
 - `./install.sh --skip-brew` - Install dotfiles without Homebrew packages
 - `./install.sh --dry-run` - Preview changes without making them
 - `./install.sh --quiet` - Quiet installation (reduces Homebrew noise)
 - `./install.sh --dry-run --skip-brew` - Dry run without Homebrew
 - `./install.sh --inject-aliases <file>` - Inject aliases from zsh/aliases.zsh to specified file (exits after injection). Skips comments/blank lines, detects conflicts, avoids duplicates. Logic extracted to `lib/inject-aliases.zsh`
-- `./update.sh` - Update dotfiles (pulls from git and reinstalls with quiet mode)
+- `./update.zsh` - Update dotfiles (pulls from git and reinstalls with quiet mode)
 
 ### No Build/Test Commands
 
@@ -26,8 +26,8 @@ This repository contains configuration files and shell scripts - there are no bu
 
 ### Core Structure
 
-- `install.sh` - Main installation script with dry-run support
-- `update.sh` - Simple update script that pulls and reinstalls
+- `install.zsh` - Main installation script with dry-run support
+- `update.zsh` - Simple update script that pulls and reinstalls
 - `Brewfile` - Homebrew package definitions
 - `python-requirements.txt` - Python dependencies
 
