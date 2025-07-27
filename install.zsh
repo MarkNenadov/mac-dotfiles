@@ -121,6 +121,14 @@ fi
 
 do_brew
 
+if [[ "$DRY_RUN" == "true" ]]; then
+    log_dry_run "Would be installing vs code extensions from vscode/extensions.txt"
+else
+    log "Installing vs code extensions from vscode/extensions.txt"
+    cat vscode/extensions.txt | xargs -n 1 code --install-extension >/dev/null 2>&1
+fi
+
+
 log "Linking dotfiles..."
 
 link_dotfiles() {
