@@ -146,6 +146,7 @@ link_dotfiles() {
 		echo "  - zsh/ -> $HOME/.zsh"
 		echo "  - vimrc -> $HOME/.vimrc"
 		echo "  - vscode/settings.json -> $HOME/Library/Application Support/Code/User/settings.json"
+		echo "  - cursor/settings.json -> $HOME/Library/Application Support/Cursor/User/settings.json"
 	else
 		# Handle gitconfig
 		backup_and_link "$(pwd)/gitconfig" "$HOME/.gitconfig"
@@ -161,7 +162,11 @@ link_dotfiles() {
 
 		# Handle VS Code settings
 		mkdir -p "$HOME/Library/Application Support/Code/User"
-		backup_and_link "$(pwd)/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+		backup_and_link "$(pwd)/vscode/settings.json" "$HOMEF"
+		
+		# Handle Cursor settings
+		mkdir -p "$HOME/Library/Application Support/Cursor/User"
+		backup_and_link "$(pwd)/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 	fi
 }
 link_dotfiles
