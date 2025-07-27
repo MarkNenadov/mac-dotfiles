@@ -11,6 +11,22 @@ silent_unalias server
 # Usage: server [port_number]
 function server() {
     local port="${1:-8000}"
+    
+    if [[ ! "$port" =~ ^[0-9]+$ ]]; then
+        echo "Error: Port must be numeric" >&2
+        return 1
+    fi
+    
+    if (( port < 1024 )); then
+        echo "Error: Port $port is a privileged port (< 1024) and requires sudo" >&2
+        return 1
+    fi
+    
+    if (( port > 65535 )); then
+        echo "Error: Port $port is out of valid range (1024-65535)" >&2
+        return 1
+    fi
+    
     echo "Starting HTTP server on port $port..."
     echo "Open http://localhost:$port in your browser"
     sleep 1 && open "http://localhost:$port/" &
