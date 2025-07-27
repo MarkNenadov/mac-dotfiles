@@ -33,6 +33,10 @@ function server() {
     python3 -m http.server "$port"
 }
 
+# Guess operating system of a remote host using nmap OS detection
+# Uses nmap's -O flag to perform OS fingerprinting via TCP/IP stack analysis
+# Requires sudo privileges for raw socket access
+# Usage: guessos <ip_address>
 function guessos() {
     if [ $# -eq 0 ]; then
         echo "Error: No ip address specified. Usage: guessos <ip_address>"
