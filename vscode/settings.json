@@ -1,0 +1,13 @@
+{
+    "sync.gist": "e4cec65fc7c40ba407ba616a72fd5b34",
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "eslint.format.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "settingsSync.ignoredExtensions": [],
+    "python.defaultInterpreterPath": "/opt/homebrew/anaconda3/envs/llama3",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.nextEditSuggestions.enabled": true
+}
