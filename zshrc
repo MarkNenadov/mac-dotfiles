@@ -1,5 +1,10 @@
 function silent_unalias() {
-  unalias $1 2>/dev/null
+  if [[ $# -eq 0 || -z "$1" ]]; then
+    echo "Usage: silent_unalias <alias_name>" >&2
+    return 1
+  fi
+  
+  unalias "$1" 2>/dev/null
 }
 
 # This sources all .zsh files from the ~/.zsh/ directory for better organization
@@ -9,7 +14,7 @@ done
 
 # Custom utility functions
 
-function  encode64() {
+function encode64() {
   if [ -f "$1" ]; then
 
     local mime;
