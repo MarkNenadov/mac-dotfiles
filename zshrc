@@ -14,6 +14,8 @@ done
 
 # Custom utility functions
 
+siilent_unalias encode64
+
 function encode64() {
   if [ -f "$1" ]; then
 
