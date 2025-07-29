@@ -202,13 +202,13 @@ install_language_runtimes
 
 install_python_dependencies() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		log_dry_run "Would install Python dependencies from python-requirements.txt"
+		log_dry_run "Would install Python dependencies from python/python-requirements.txt"
 	else
-		log "Installing python dependencies from python-requirements.txt"
+		log "Installing python dependencies from python/python-requirements.txt"
 		pip install --upgrade pip
-		python3 -m pip install -r python-requirements.txt
+		python3 -m pip install -r python/python-requirements.txt
 	fi
-}
+}q
 install_python_dependencies
 
 if [[ "$DRY_RUN" == "true" ]]; then
