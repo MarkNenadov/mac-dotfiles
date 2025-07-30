@@ -41,7 +41,7 @@
 * I tend to prefer code that is idomatic in the language being used
 * Use trailing comma on last argument in multi-line method calls where possible
 
-## After Changres
+## Things To Do After Changes
 
 * Ensure there are no unused parameters
 * Ensure there are no unused imports
