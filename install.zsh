@@ -157,9 +157,8 @@ link_dotfiles() {
 		# Handle zsh directory
 		backup_and_link "$(pwd)/zsh" "$HOME/.zsh" true
 
-		# Handle zsh directory
+		# Handle claude directory
 		backup_and_link "$(pwd)/claude" "$HOME/.claude" true
-
 
 		# Handle vimrc
 		backup_and_link "$(pwd)/vimrc" "$HOME/.vimrc"
