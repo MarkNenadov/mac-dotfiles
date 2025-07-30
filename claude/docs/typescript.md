@@ -4,6 +4,12 @@
 
 * Take the time to get the typing right from the start (be hesitant to use "any")
 
+## Typescript/React/Node/Web Projects
+
+* Prefer TailwindCSS for styling
+* Prefer Next.JS
+* Prefer bun over npm/yarn
+
 ## React: Organization
 
 * One exported Component per file (private sub components are fine)
@@ -18,8 +24,6 @@
 
 ## React: General
 
-* Prefer TailwindCSS for styling
-* Prefer Next.JS
 * De-structure obsessively (but maybe don't go overboard)
 * Ordinarily de-structure your props in the component signature
 * Keep your state as low as you can.

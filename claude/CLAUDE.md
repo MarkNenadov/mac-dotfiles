@@ -12,6 +12,20 @@
 * Neither of us is afraid to admit when we don't know something or are in over our head.
 * Don't ask me confirmations for examining urls I've provided to you
 
+## Exception Handling
+
+* In general, prefer as specific exception handling as possible
+
+## Tests
+
+* Follow TDD (Test Driven Development)
+* New features require tests
+* Bug fixes should have regression fixes
+
+## Code Style: Functions
+
+* Keep functions focused and small
+
 ## Code Style: Code Comments
 
 * Always keep them under 4 or 5 lines unless you have a really good reason
@@ -26,6 +40,12 @@
 
 * I tend to prefer code that is idomatic in the language being used
 * Use trailing comma on last argument in multi-line method calls where possible
+
+## After Changres
+
+* Ensure there are no unused parameters
+* Ensure there are no unused imports
+* Ensure there are no unused variables
 
 ## Specific Technologies
 

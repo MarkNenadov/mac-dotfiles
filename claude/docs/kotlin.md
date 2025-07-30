@@ -11,3 +11,5 @@
 ## Variables
 
 * Don't use a var when a val will do (prefer immutability)
+
+* Names of constants (properties marked with const, or top-level or object val properties with no custom get function that hold deeply immutable data) should use all uppercase, underscore-separated names following the screaming snake case convention
