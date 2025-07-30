@@ -157,6 +157,10 @@ link_dotfiles() {
 		# Handle zsh directory
 		backup_and_link "$(pwd)/zsh" "$HOME/.zsh" true
 
+		# Handle zsh directory
+		backup_and_link "$(pwd)/claude" "$HOME/.claude" true
+
+
 		# Handle vimrc
 		backup_and_link "$(pwd)/vimrc" "$HOME/.vimrc"
 
@@ -208,7 +212,7 @@ install_python_dependencies() {
 		pip install --upgrade pip
 		python3 -m pip install -r python/python-requirements.txt
 	fi
-}q
+}
 install_python_dependencies
 
 if [[ "$DRY_RUN" == "true" ]]; then
