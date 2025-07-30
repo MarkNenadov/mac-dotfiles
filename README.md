@@ -10,6 +10,7 @@ I've shared some thoughts on this subject over at my blog: https://wondering.wil
 - 🛠️ Homebrew package management
 - 🐍 Python/Ruby/Java environment configuration with mise
 - 🎨 Custom ZSH configuration with useful aliases and functions
+- 🤖 Claude/Cursor/Vs Code setup
 - 🔧 Git configuration with helpful aliases
 - 📝 Vim configuration
 
