@@ -50,5 +50,9 @@
 ## Specific Technologies
 
 @~/.claude/docs/kotlin.md
+
+@~/.claude/docs/python.md
+
 @~/.claude/docs/typescript.md
+
 @~/.claude/docs/shell-scripts.md
