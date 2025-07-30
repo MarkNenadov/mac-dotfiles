@@ -64,3 +64,4 @@ Brewfile.lock.json
 .nvimlog
 claude/projects/
 claude/statsig/
+claude/todos/
