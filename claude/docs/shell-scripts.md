@@ -19,6 +19,10 @@
 * local variables should never be capitlized
 * Use readonly for constants
 
+## Conditions
+
+* Conditions should be surrounded by two brackets ([[ and ]]) not one [ and ])
+
 ## Functions
 
 * Check parameters and fail with error message if not provided
