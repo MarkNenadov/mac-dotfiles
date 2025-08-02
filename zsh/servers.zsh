@@ -39,7 +39,7 @@ function server() {
 # Requires sudo privileges for raw socket access
 # Usage: guessos <ip_address>
 function guessos() {
-    if [ $# -eq 0 ]; then
+    if [[ $# -eq 0 ]]; then
         echo "Error: No ip address specified. Usage: guessos <ip_address>"
         return 1
     fi

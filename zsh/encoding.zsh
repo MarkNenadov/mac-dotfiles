@@ -3,7 +3,7 @@
 silent_unalias encode64
 
 function encode64() {
-  if [ -f "$1" ]; then
+  if [[ -f "$1" ]]; then
 
     local mime;
     mime=$(file -b --mime-type "$1")

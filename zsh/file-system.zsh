@@ -8,7 +8,7 @@ silent_unalias f
 # Combines mkdir and cd into a single command
 # Usage: mkcd <directory_name>
 function mkcd() {
-    if [ -z "$1" ]; then
+    if [[ -z "$1" ]]; then
         echo "Usage: mkcd <directory_name>"
         return 1
     fi
@@ -21,7 +21,7 @@ function mkcd() {
 # Validates file existence before attempting to move
 # Usage: trash <file_or_directory>
 function trash() {
-    if [ -z "$1" ]; then
+    if [[ -z "$1" ]]; then
         echo "Usage: trash <file_or_directory>"
         return 1
     fi
@@ -34,7 +34,7 @@ function trash() {
             ;;
     esac
     
-    if [ ! -e "$1" ]; then
+    if [[ ! -e "$1" ]]; then
         echo "Error: '$1' does not exist"
         return 1
     fi

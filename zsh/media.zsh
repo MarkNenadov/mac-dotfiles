@@ -8,7 +8,7 @@ silent_unalias 2jpg
 # Uses macOS sips command for conversion, preserves original filename
 # Usage: 2heic <file1> [file2 ...]
 function 2heic() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     echo "Error: No files specified. Usage: 2heic <file1> [file2 ...]"
     return 1
   fi
@@ -21,7 +21,7 @@ function 2heic() {
 # Uses macOS sips command for conversion, preserves original filename
 # Usage: 2png <file1> [file2 ...]
 function 2png() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     echo "Error: No files specified. Usage: 2png <file1> [file2 ...]"
     return 1
   fi
@@ -34,7 +34,7 @@ function 2png() {
 # Uses macOS sips command for conversion, preserves original filename
 # Usage: 2jpg <file1> [file2 ...]
 function 2jpg() {
-  if [ $# -eq 0 ]; then
+  if [[ $# -eq 0 ]]; then
     echo "Error: No files specified. Usage: 2jpg <file1> [file2 ...]"
     return 1
   fi
