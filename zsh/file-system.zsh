@@ -50,3 +50,8 @@ function trash() {
 function f() {
     find . -name "$1*"
 }
+
+function free() {
+    local free_space=$(df -g | awk 'NR==2 {print $4}')
+    echo "${free_space}G"
+}
