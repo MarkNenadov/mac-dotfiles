@@ -2,7 +2,8 @@
 
 set -e
 
-readonly HOMEBREW_INSTALL_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+readonly HOMEBREW_INSTALL_URL=\
+"https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 readonly ZSHLILLY_REPO_URL="https://github.com/MarkNenadov/zshlilly.git"
 readonly MISE_JAVA_VERSION="zulu-24.32.13.0"
 
@@ -122,7 +123,8 @@ fi
 do_brew
 
 if [[ "$DRY_RUN" == "true" ]]; then
-    log_dry_run "Would be installing vs code extensions from vscode/extensions.txt"
+    log_dry_run \
+        "Would be installing vs code extensions from vscode/extensions.txt"
 else
     log "Installing vs code extensions from vscode/extensions.txt"
     cat vscode/extensions.txt | \
@@ -130,7 +132,8 @@ else
 fi
 
 if [[ "$DRY_RUN" == "true" ]]; then
-    log_dry_run "Would be installing cursor extensions from cursor/extensions.txt"
+    log_dry_run \
+        "Would be installing cursor extensions from cursor/extensions.txt"
 else
     log "Installing cursor extensions from cursor/extensions.txt"
     cat cursor/extensions.txt | \
@@ -147,8 +150,10 @@ link_dotfiles() {
 		echo "  - zshrc -> $HOME/.zshrc"
 		echo "  - zsh/ -> $HOME/.zsh"
 		echo "  - vimrc -> $HOME/.vimrc"
-		echo "  - vscode/settings.json -> $HOME/Library/Application Support/Code/User/settings.json"
-		echo "  - cursor/settings.json -> $HOME/Library/Application Support/Cursor/User/settings.json"
+		echo "  - vscode/settings.json -> " \
+			"$HOME/Library/Application Support/Code/User/settings.json"
+		echo "  - cursor/settings.json -> " \
+			"$HOME/Library/Application Support/Cursor/User/settings.json"
 	else
 		# Handle gitconfig
 		backup_and_link "$(pwd)/gitconfig" "$HOME/.gitconfig"
@@ -167,11 +172,13 @@ link_dotfiles() {
 
 		# Handle VS Code settings
 		mkdir -p "$HOME/Library/Application Support/Code/User"
-		backup_and_link "$(pwd)/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+		backup_and_link "$(pwd)/vscode/settings.json" \
+			"$HOME/Library/Application Support/Code/User/settings.json"
 		
 		# Handle Cursor settings
 		mkdir -p "$HOME/Library/Application Support/Cursor/User"
-		backup_and_link "$(pwd)/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+		backup_and_link "$(pwd)/cursor/settings.json" \
+			"$HOME/Library/Application Support/Cursor/User/settings.json"
 	fi
 }
 link_dotfiles
@@ -207,9 +214,11 @@ install_language_runtimes
 
 install_python_dependencies() {
 	if [[ "$DRY_RUN" == "true" ]]; then
-		log_dry_run "Would install Python dependencies from python/python-requirements.txt"
+		log_dry_run \
+			"Would install Python dependencies from python/python-requirements.txt"
 	else
-		log "Installing python dependencies from python/python-requirements.txt"
+		log \
+			"Installing python dependencies from python/python-requirements.txt"
 		pip install --upgrade pip
 		python3 -m pip install -r python/python-requirements.txt
 	fi

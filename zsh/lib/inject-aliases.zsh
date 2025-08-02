@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-# inject_aliases function - extracts aliases from zsh/aliases.zsh and injects them into a target file
+# inject_aliases function - extracts aliases from zsh/aliases.zsh and injects
+# them into a target file
 # Usage: inject_aliases <target_file> [dry_run]
 function inject_aliases() {
 	local target_file="$1"
@@ -12,7 +13,8 @@ function inject_aliases() {
 	fi
 	
 	if [[ "$dry_run" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would inject aliases from zsh/aliases.zsh to $target_file"
+		echo "[mac-dotfiles] [DRY RUN] Would inject aliases from " \
+			"zsh/aliases.zsh to $target_file"
 		return 0
 	fi
 	
