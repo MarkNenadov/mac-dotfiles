@@ -12,7 +12,9 @@ function 2heic() {
     echo "Error: No files specified. Usage: 2heic <file1> [file2 ...]"
     return 1
   fi
-  for i in "$@"; do sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic"; done
+  for i in "$@"; do
+    sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic"
+  done
 }
 
 # Convert image files to PNG format with 80% quality
@@ -23,7 +25,9 @@ function 2png() {
     echo "Error: No files specified. Usage: 2png <file1> [file2 ...]"
     return 1
   fi
-  for i in "$@"; do sips -s format png -s formatOptions 80 "$i" --out "${i%.*}.png"; done
+  for i in "$@"; do
+    sips -s format png -s formatOptions 80 "$i" --out "${i%.*}.png"
+  done
 }
 
 # Convert image files to JPG format with 80% quality

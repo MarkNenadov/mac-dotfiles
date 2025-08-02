@@ -45,7 +45,8 @@ function inject_aliases() {
 	
 	# Check if for loop already exists
 	has_for_loop=0
-	if [[ -f "$target_file" ]] && grep -q 'for c in cp rm chmod chown rename; do' "$target_file" 2>/dev/null; then
+	if [[ -f "$target_file" ]] && \
+		grep -q 'for c in cp rm chmod chown rename; do' "$target_file" 2>/dev/null; then
 		has_for_loop=1
 	fi
 	
@@ -112,7 +113,8 @@ function inject_aliases() {
 				skipped_list="$skipped_list, $alias"
 			fi
 		done
-		echo "[mac-dotfiles] Skipping ${#skipped_duplicates[@]} duplicate aliases: $skipped_list"
+		echo "[mac-dotfiles] Skipping ${#skipped_duplicates[@]} duplicate aliases: " \
+			"$skipped_list"
 	fi
 	
 	# Count new aliases (excluding comments/empty lines)
