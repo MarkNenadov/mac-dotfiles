@@ -21,6 +21,7 @@ function mkcd() {
 # Validates file existence before attempting to move
 # Usage: trash <file_or_directory>
 function trash() {
+    require_macos || return 1
     if [[ -z "$1" ]]; then
         echo "Usage: trash <file_or_directory>"
         return 1
