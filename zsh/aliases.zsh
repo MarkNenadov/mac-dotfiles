@@ -79,7 +79,6 @@ alias ips="ifconfig -a | \
            '[a-fA-F0-9:]\+\)' | \
     sed -e 's/inet6* //'"
 alias ports="netstat -p tcp -t -u -l -a -n"
-alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 # javascript
 
