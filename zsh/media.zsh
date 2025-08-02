@@ -38,5 +38,7 @@ function 2jpg() {
     echo "Error: No files specified. Usage: 2jpg <file1> [file2 ...]"
     return 1
   fi
-  for i in "$@"; do sips -s format jpg -s formatOptions 80 "$i" --out "${i%.*}.jpg"; done
+  for i in "$@"; do
+    sips -s format jpg -s formatOptions 80 "$i" --out "${i%.*}.jpg"
+  done
 }

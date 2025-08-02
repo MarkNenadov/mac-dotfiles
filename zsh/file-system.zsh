@@ -43,7 +43,8 @@ function trash() {
 }
 
 # Quick file finder using partial name matching
-# Searches current directory and subdirectories for files starting with given pattern
+# Searches current directory and subdirectories for files starting with given
+# pattern
 # Usage: f <partial_filename>
 function f() {
     find . -name "$1*"
