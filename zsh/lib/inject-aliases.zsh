@@ -52,10 +52,10 @@ function inject_aliases() {
 	fi
 	
 	# Process source file line by line
-	declare -a new_aliases
-	declare -a skipped_duplicates
-	declare -i conflicts=0
-	declare -i in_for_loop=0
+	local -a new_aliases
+	local -a skipped_duplicates
+	local -i conflicts=0
+	local -i in_for_loop=0
 	
 	while IFS= read -r line; do
 		if [[ $line =~ '^alias[[:space:]]+([^=]+)=(.*)$' ]]; then
