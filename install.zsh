@@ -69,7 +69,7 @@ done
 
 do_brew() {
 	if [[ "$SKIP_BREW" != "true" ]]; then
-		if [ ! $(which brew) ]; then
+		if [[ ! $(which brew) ]]; then
 			if [[ "$DRY_RUN" == "true" ]]; then
 				log_dry_run "Would install Homebrew..."
 			else
