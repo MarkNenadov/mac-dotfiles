@@ -17,5 +17,8 @@ function last_commit() {
 # Usage: clean_branches
 function clean_branches() {
   git remote prune origin
-  git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
+  git branch -vv | \
+    grep "origin/.*: gone]" | \
+    awk '{print $1}' | \
+    xargs git branch -D
 }

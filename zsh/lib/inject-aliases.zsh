@@ -29,7 +29,8 @@ function inject_aliases() {
 	# Parse existing aliases from target file using a temporary file
 	temp_existing=$(mktemp)
 	if [[ -f "$target_file" ]]; then
-		grep '^alias ' "$target_file" 2>/dev/null | sed 's/^alias \([^=]*\)=\(.*\)$/\1|\2/' > "$temp_existing"
+		grep '^alias ' "$target_file" 2>/dev/null | \
+			sed 's/^alias \([^=]*\)=\(.*\)$/\1|\2/' > "$temp_existing"
 	fi
 	
 	declare -A existing_aliases
