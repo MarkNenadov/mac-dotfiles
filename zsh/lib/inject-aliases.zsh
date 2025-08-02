@@ -46,7 +46,8 @@ function inject_aliases() {
 	# Check if for loop already exists
 	has_for_loop=0
 	if [[ -f "$target_file" ]] && \
-		grep -q 'for c in cp rm chmod chown rename; do' "$target_file" 2>/dev/null; then
+		grep -q 'for c in cp rm chmod chown rename; do' \
+			"$target_file" 2>/dev/null; then
 		has_for_loop=1
 	fi
 	

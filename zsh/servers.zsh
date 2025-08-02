@@ -18,8 +18,8 @@ function server() {
     fi
     
     if (( port < 1024 )); then
-        echo "Error: Port $port is a privileged port (< 1024) and requires sudo" \
-            >&2
+        echo "Error: Port $port is a privileged port (< 1024) and " \
+             "requires sudo" >&2
         return 1
     fi
     
