@@ -7,14 +7,8 @@ readonly HOMEBREW_INSTALL_URL=\
 readonly ZSHLILLY_REPO_URL="https://github.com/MarkNenadov/zshlilly.git"
 readonly MISE_JAVA_VERSION="zulu-24.32.13.0"
 
-# Logging helper functions
-log() {
-	echo "[mac-dotfiles] $1"
-}
-
-log_dry_run() {
-	echo "[mac-dotfiles] [DRY RUN] $1"
-}
+# Source centralized logging functions
+source "$(pwd)/zsh/lib/logging.zsh"
 
 # Backup existing file and create symlink
 backup_and_link() {

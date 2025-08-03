@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Source centralized logging functions
+source "$(dirname "$0")/logging.zsh"
+
 # inject_aliases function - extracts aliases from zsh/aliases.zsh and injects
 # them into a target file
 # Usage: inject_aliases <target_file> [dry_run]
@@ -8,23 +11,22 @@ function inject_aliases() {
 	local dry_run="${2:-false}"
 	
 	if [[ -z "$target_file" ]]; then
-		echo "[mac-dotfiles] Error: inject_aliases requires a target file path"
+		log "Error: inject_aliases requires a target file path"
 		return 1
 	fi
 	
 	if [[ "$dry_run" == "true" ]]; then
-		echo "[mac-dotfiles] [DRY RUN] Would inject aliases from " \
-			"zsh/aliases.zsh to $target_file"
+		log_dry_run "Would inject aliases from zsh/aliases.zsh to $target_file"
 		return 0
 	fi
 	
-	echo "[mac-dotfiles] Injecting aliases to $target_file..."
+	log "Injecting aliases to $target_file..."
 	
 	# Note: We'll create the target file only if we have content to inject
 	
 	# Check if aliases.zsh exists
 	if [[ ! -f "zsh/aliases.zsh" ]]; then
-		echo "[mac-dotfiles] Error: zsh/aliases.zsh not found"
+		log "Error: zsh/aliases.zsh not found"
 		return 1
 	fi
 	
@@ -69,7 +71,7 @@ function inject_aliases() {
 					skipped_duplicates+=("$alias_name")
 				else
 					# Conflict - report and fail
-					echo "[mac-dotfiles] Error: Alias conflict detected for '$alias_name'"
+					log "Error: Alias conflict detected for '$alias_name'"
 					echo "  Existing: alias $alias_name=${existing_aliases[$alias_name]}"
 					echo "  New:      alias $alias_name=$alias_def"
 					conflicts=1
@@ -100,7 +102,7 @@ function inject_aliases() {
 	
 	# Exit if conflicts were found
 	if [[ $conflicts -eq 1 ]]; then
-		echo "[mac-dotfiles] Aborting injection to prevent conflicts"
+		log "Aborting injection to prevent conflicts"
 		return 1
 	fi
 	
@@ -114,8 +116,7 @@ function inject_aliases() {
 				skipped_list="$skipped_list, $alias"
 			fi
 		done
-		echo "[mac-dotfiles] Skipping ${#skipped_duplicates[@]} duplicate aliases: " \
-			"$skipped_list"
+		log "Skipping ${#skipped_duplicates[@]} duplicate aliases: $skipped_list"
 	fi
 	
 	# Count new aliases (excluding comments/empty lines)
@@ -127,9 +128,9 @@ function inject_aliases() {
 	done
 	
 	if [[ $new_alias_count -eq 0 ]]; then
-		echo "[mac-dotfiles] No new aliases to inject - all aliases already present"
+		log "No new aliases to inject - all aliases already present"
 	else
-		echo "[mac-dotfiles] Injecting $new_alias_count new aliases..."
+		log "Injecting $new_alias_count new aliases..."
 		
 		# Create target file if it doesn't exist
 		if [[ ! -f "$target_file" ]]; then
@@ -149,7 +150,7 @@ function inject_aliases() {
 		echo "" >> "$target_file"
 		echo "# ==== End mac-dotfiles injection ====" >> "$target_file"
 		
-		echo "[mac-dotfiles] Aliases injected successfully to $target_file"
+		log "Aliases injected successfully to $target_file"
 	fi
 	
 	return 0
