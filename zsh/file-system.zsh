@@ -51,6 +51,9 @@ function f() {
     find . -name "$1*"
 }
 
+# Display available free disk space in gigabytes
+# Shows free space on root filesystem formatted as "XXG"
+# Usage: free
 function free() {
     local free_space=$(df -g | awk 'NR==2 {print $4}')
     echo "${free_space}G"

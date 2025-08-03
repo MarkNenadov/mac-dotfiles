@@ -2,6 +2,10 @@
 
 silent_unalias encode64
 
+# Encode file or text to base64 format with optional data URI
+# For files: creates data URI with MIME type detection
+# For text: encodes string or stdin to base64
+# Usage: encode64 [file_or_text]
 function encode64() {
   if [[ -f "$1" ]]; then
 

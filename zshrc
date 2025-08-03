@@ -1,3 +1,6 @@
+# Remove alias without error output if alias doesn't exist
+# Silently unaliases commands to allow function definitions
+# Usage: silent_unalias <alias_name>
 function silent_unalias() {
   if [[ $# -eq 0 || -z "$1" ]]; then
     echo "Usage: silent_unalias <alias_name>" >&2
