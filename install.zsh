@@ -7,8 +7,8 @@ readonly HOMEBREW_INSTALL_URL=\
 readonly ZSHLILLY_REPO_URL="https://github.com/MarkNenadov/zshlilly.git"
 readonly MISE_JAVA_VERSION="zulu-24.32.13.0"
 
-# Source centralized logging functions
 source "$(pwd)/zsh/lib/logging.zsh"
+source "$(pwd)/zsh/lib/inject-aliases.zsh"
 
 # Backup existing file and create symlink
 backup_and_link() {
@@ -61,6 +61,17 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
+handle_inject_aliases() {
+	if [[ -n "$INJECT_ALIASES" ]]; then
+		inject_aliases "$INJECT_ALIASES" "$DRY_RUN"
+		return $?
+	fi
+}
+handle_inject_aliases
+if [[ -n "$INJECT_ALIASES" ]]; then
+	exit 0
+fi
+
 do_brew() {
 	if [[ "$SKIP_BREW" != "true" ]]; then
 		if [[ ! $(which brew) ]]; then
@@ -104,22 +115,6 @@ do_brew() {
 		fi
 	fi
 }
-
-# Load the inject-aliases library
-source "$(pwd)/zsh/lib/inject-aliases.zsh"
-
-handle_inject_aliases() {
-	if [[ -n "$INJECT_ALIASES" ]]; then
-		inject_aliases "$INJECT_ALIASES" "$DRY_RUN"
-		return $?
-	fi
-}
-
-handle_inject_aliases
-if [[ -n "$INJECT_ALIASES" ]]; then
-	exit 0
-fi
-
 do_brew
 
 if [[ "$DRY_RUN" == "true" ]]; then
