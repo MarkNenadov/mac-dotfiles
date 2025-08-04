@@ -64,13 +64,19 @@ done
 do_brew() {
 	if [[ "$SKIP_BREW" != "true" ]]; then
 		if [[ ! $(which brew) ]]; then
+			if [[ ! -x "/usr/bin/ruby" ]]; then
+				echo "Error: /usr/bin/ruby not found. Cannot install Homebrew."
+				echo "Try running with --skip-brew to skip Homebrew installation."
+				exit 1
+			fi
+			
 			if [[ "$DRY_RUN" == "true" ]]; then
 				log_dry_run "Would install Homebrew..."
 			else
 				log "Installing homebrew..."
 				/usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_INSTALL_URL)"
-				echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-				eval "$(/opt/homebrew/bin/brew shellenv)"
+				echo 'eval "$(brew shellenv)"' >> $HOME/.zprofile
+				eval "$(brew shellenv)"
 			fi
 		fi
 
